@@ -10,6 +10,7 @@ with LogixDriver('192.168.1.1') as plc:
     print(f"The value of 'MyTag' is: {tag_value}")
 """
 from pylogix import PLC
+import pandas as pd
 
 # set up the connection to the PLC
 with PLC() as plc:
@@ -18,7 +19,7 @@ with PLC() as plc:
 
     if connected:
         # read the tag 'MyTag' from the PLC
-        response = plc.Read('report15_data[0].log_data[0].total')
+        response = plc.Read('report_data[0].time')
 
         # check if the read was successful
         if response.Status == "Success":
