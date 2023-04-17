@@ -19,7 +19,7 @@ with PLC() as plc:
 
     if connected:
         # read the tag 'MyTag' from the PLC
-        response = plc.Read('report_data[0].time')
+        response = plc.Read('report_data[0].log_data[0].min')
 
         # check if the read was successful
         if response.Status == "Success":

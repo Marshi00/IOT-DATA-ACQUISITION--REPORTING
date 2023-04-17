@@ -1,12 +1,13 @@
 from datetime import datetime, timedelta
 from pylogix import PLC
 import pandas as pd
+IP_ADDRESS = '192.168.0.99'
 TAG_CATEGORY = "report_data"
 START_HOURLY_TAG = 0
 STOP_HOURLY_TAG = 200
-### TODO: Come from DB
+##TODO: Come from DB
 LAST_READ_DATETIME = datetime(2023, 1, 18, 5, 59, 39)
-### TODO: Come from DB
+# TODO: Come from DB
 LAST_READ_NUMBER = 123
 
 # initialize closest_datetime to None and smallest_timedelta to a large value
@@ -39,7 +40,7 @@ def read_tag(plc, tag, read_num):
 
 # set up the connection to the PLC
 with PLC() as plc:
-    plc.IPAddress = '192.168.0.99'
+    plc.IPAddress = IP_ADDRESS
     connected = plc.IPAddress
     if connected:
         print("stage 1 checking if db is having same read")
@@ -84,16 +85,16 @@ with PLC() as plc:
                                 if LAST_READ_DATETIME == current_read_datetime:
                                     print(f" we found a match on search all ,The value of current number  {i} is: {current_read_datetime} & it matches  = {LAST_READ_DATETIME}")
                                     break
-                                ### TODO: db.insert(current_read_datetime)
+                                # TODO: db.insert(current_read_datetime)
                                 # db.insert(current_read_datetime)
                                 timedelta_to_desired = abs(current_read_datetime - LAST_READ_DATETIME)
                                 # update closest_datetime and smallest_timedelta if this tag is closer to the desired_datetime
-                                ### TODO: this is checking vs magnitude of the difference and not whether it is positive or negative. may cause errors
+                                # TODO: this is checking vs magnitude of the difference and not whether it is positive or negative. may cause errors
                                 if timedelta_to_desired < smallest_timedelta:
                                     closest_datetime = current_read_datetime
                                     smallest_timedelta = timedelta_to_desired
                         else:
-                            ### TODO: log it
+                            # TODO: log it
                             print(f"Read failed {i}")
                     print("couldn't get a match on search all , stage 3 Checking the closest date now")
                     # print the closest date-time value
@@ -102,7 +103,7 @@ with PLC() as plc:
                     else:
                         print("No valid date-time values were found.")
         else:
-            ### TODO log it
+            # TODO log it
             print(f"Read failed at {LAST_READ_NUMBER}")
     else:
         print("Could not connect to PLC")

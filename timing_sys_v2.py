@@ -1,26 +1,24 @@
 from datetime import datetime, timedelta
 from pylogix import PLC
 import logging
-import pandas as pd
 
 # Set up logging
+# TODO: Dynamic daily log text + in spec folder
 logging.basicConfig(filename='log.txt', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
 
 
 PLC_IP = '192.168.0.99'
 TAG_CATEGORY = "report_data"
-START_HOURLY_TAG = 0
-STOP_HOURLY_TAG = 200
-### TODO: Come from DB
+START_HOURLY_ARCHIVE = 0
+STOP_HOURLY_ARCHIVE = 200
+# TODO: Come from DB
 LAST_READ_DATETIME_FROM_DB = datetime(2023, 1, 18, 5, 59, 39)
-### TODO: Come from DB
+# TODO: Come from DB
 LAST_READ_NUMBER_FROM_DB = 123
 
 
-
-
-# define the function to read PLC tag values
+# define the function to read PLC datetime values
 def read_tag_datetime(plc_connection, tag_category: str, read_num: int) -> object:
     """
         Reads the DateTime of a tag from the PLC.
@@ -39,7 +37,7 @@ def read_tag_datetime(plc_connection, tag_category: str, read_num: int) -> objec
     response = plc_connection.Read
 
     if test_conn.Status != "Success":
-        ### TODO: LOG IT !
+        # TODO: LOG IT !
         print(f"Read failed for tag {tag_category} at number {read_num}")
         logging.error(f"Read failed for tag {tag_category} at number {read_num}")
         return None
@@ -63,12 +61,11 @@ def read_tag_datetime(plc_connection, tag_category: str, read_num: int) -> objec
         return None
         #raise ValueError(f"Invalid date-time value for {read_num} : {year}-{month}-{day} {hour}:{minute}:{second}")
 
-
     try:
         datetime_obj = datetime.strptime(datetime_str, '%Y-%m-%d %H:%M:%S')
         print(f"The value of {read_num} is: {datetime_obj}")
         logging.info(f"The value of {read_num} is: {datetime_obj}")
-        ### TODO: READ NUMBER return
+        # TODO: READ NUMBER return
         return datetime_obj
     except ValueError:
         print(f"Invalid date-time value for {read_num} : {datetime_str}")
@@ -91,7 +88,7 @@ def search_for_match(plc_connection, start_tag_num: int, stop_tag_num: int, last
         if LAST_READ_DATETIME_FROM_DB == current_read_datetime:
             print(f"Found a match on search all ,The value of current number  {i} is: {current_read_datetime} & it matches  = {LAST_READ_DATETIME_FROM_DB}")
             logging.info(f"Found a match on search all ,The value of current number  {i} is: {current_read_datetime} & it matches  = {LAST_READ_DATETIME_FROM_DB}")
-            ### TODO: READ NUMBER return
+            # TODO: READ NUMBER return
             return current_read_datetime
         if current_read_datetime is not None:
             timedelta_to_desired = abs(current_read_datetime - last_read_datetime_from_db)
@@ -106,10 +103,10 @@ def search_for_match(plc_connection, start_tag_num: int, stop_tag_num: int, last
         print(f"The closest date-time value is: {closest_datetime}")
         logging.info(f"The closest date-time value is: {closest_datetime}")
     else:
-        ### TODO: LOG IT !
+        # TODO: LOG IT !
         print("No valid date-time values were found.")
         logging.error("No valid date-time values were found.")
-    ### TODO: READ NUMBER return
+    # TODO: READ NUMBER return
     return closest_datetime
 
 
@@ -130,5 +127,8 @@ with PLC() as plc:
         else:
             print("Couldn't match, stage 2 searching all")
             logging.info("Couldn't match, stage 2 searching all")
-            match_search = search_for_match(plc_connection=plc, start_tag_num=START_HOURLY_TAG, stop_tag_num=STOP_HOURLY_TAG, last_read_datetime_from_db=LAST_READ_DATETIME_FROM_DB)
+            match_search = search_for_match(plc_connection=plc, start_tag_num=START_HOURLY_ARCHIVE, stop_tag_num=STOP_HOURLY_ARCHIVE, last_read_datetime_from_db=LAST_READ_DATETIME_FROM_DB)
 
+    else:
+        logging.info("Could not connect to PLC")
+        print("Could not connect to PLC")

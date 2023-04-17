@@ -1030,3 +1030,505 @@
 2023-04-15 14:36:03,394:INFO:The value of 199 is: 2023-01-13 02:59:59
 2023-04-15 14:36:03,394:INFO:couldn't get a match on search all , stage 3 Checking the closest date now
 2023-04-15 14:36:03,394:INFO:The closest date-time value is: 2023-01-18 05:59:59
+2023-04-17 13:25:24,841:INFO:Connected to the PLC
+2023-04-17 13:25:24,841:INFO:tage 1 checking if db is having same read
+2023-04-17 13:25:24,949:INFO:The value of 123 is: 2023-01-18 06:59:59
+2023-04-17 13:25:24,949:INFO:Couldn't match, stage 2 searching all
+2023-04-17 13:25:25,021:INFO:The value of 0 is: 2023-01-13 03:59:59
+2023-04-17 13:25:25,094:INFO:The value of 1 is: 2023-01-13 04:59:59
+2023-04-17 13:25:25,167:INFO:The value of 2 is: 2023-01-13 05:59:59
+2023-04-17 13:25:25,241:INFO:The value of 3 is: 2023-01-13 06:59:59
+2023-04-17 13:25:25,314:INFO:The value of 4 is: 2023-01-13 07:59:59
+2023-04-17 13:25:25,388:INFO:The value of 5 is: 2023-01-13 08:59:59
+2023-04-17 13:25:25,462:INFO:The value of 6 is: 2023-01-13 09:59:59
+2023-04-17 13:25:25,541:INFO:The value of 7 is: 2023-01-13 10:59:59
+2023-04-17 13:25:25,614:INFO:The value of 8 is: 2023-01-13 11:59:59
+2023-04-17 13:25:25,688:INFO:The value of 9 is: 2023-01-13 12:59:59
+2023-04-17 13:25:25,761:INFO:The value of 10 is: 2023-01-13 13:59:59
+2023-04-17 13:25:25,835:INFO:The value of 11 is: 2023-01-13 14:59:59
+2023-04-17 13:25:25,909:INFO:The value of 12 is: 2023-01-13 15:59:59
+2023-04-17 13:25:25,982:INFO:The value of 13 is: 2023-01-13 16:59:59
+2023-04-17 13:25:26,057:INFO:The value of 14 is: 2023-01-13 17:59:59
+2023-04-17 13:25:26,130:INFO:The value of 15 is: 2023-01-13 18:59:59
+2023-04-17 13:25:26,203:INFO:The value of 16 is: 2023-01-13 19:59:59
+2023-04-17 13:25:26,277:INFO:The value of 17 is: 2023-01-13 20:59:59
+2023-04-17 13:25:26,350:INFO:The value of 18 is: 2023-01-13 21:59:59
+2023-04-17 13:25:26,424:INFO:The value of 19 is: 2023-01-13 22:59:59
+2023-04-17 13:25:26,499:INFO:The value of 20 is: 2023-01-13 23:59:59
+2023-04-17 13:25:26,577:INFO:The value of 21 is: 2023-01-14 00:59:59
+2023-04-17 13:25:26,651:INFO:The value of 22 is: 2023-01-14 01:59:59
+2023-04-17 13:25:26,725:INFO:The value of 23 is: 2023-01-14 02:59:59
+2023-04-17 13:25:26,798:INFO:The value of 24 is: 2023-01-14 03:59:59
+2023-04-17 13:25:26,872:INFO:The value of 25 is: 2023-01-14 04:59:59
+2023-04-17 13:25:26,945:INFO:The value of 26 is: 2023-01-14 05:59:59
+2023-04-17 13:25:27,019:INFO:The value of 27 is: 2023-01-14 06:59:59
+2023-04-17 13:25:27,093:INFO:The value of 28 is: 2023-01-14 07:59:59
+2023-04-17 13:25:27,166:INFO:The value of 29 is: 2023-01-14 08:59:59
+2023-04-17 13:25:27,239:INFO:The value of 30 is: 2023-01-14 09:59:59
+2023-04-17 13:25:27,314:INFO:The value of 31 is: 2023-01-14 10:59:59
+2023-04-17 13:25:27,386:INFO:The value of 32 is: 2023-01-14 11:59:59
+2023-04-17 13:25:27,461:INFO:The value of 33 is: 2023-01-14 12:59:59
+2023-04-17 13:25:27,534:INFO:The value of 34 is: 2023-01-14 13:59:59
+2023-04-17 13:25:27,614:INFO:The value of 35 is: 2023-01-14 14:59:59
+2023-04-17 13:25:27,687:INFO:The value of 36 is: 2023-01-14 15:59:59
+2023-04-17 13:25:27,761:INFO:The value of 37 is: 2023-01-14 16:59:59
+2023-04-17 13:25:27,835:INFO:The value of 38 is: 2023-01-14 17:59:59
+2023-04-17 13:25:27,908:INFO:The value of 39 is: 2023-01-14 18:59:59
+2023-04-17 13:25:27,982:INFO:The value of 40 is: 2023-01-14 19:59:59
+2023-04-17 13:25:28,055:INFO:The value of 41 is: 2023-01-14 20:59:59
+2023-04-17 13:25:28,134:INFO:The value of 42 is: 2023-01-14 21:59:59
+2023-04-17 13:25:28,208:INFO:The value of 43 is: 2023-01-14 22:59:59
+2023-04-17 13:25:28,281:INFO:The value of 44 is: 2023-01-14 23:59:59
+2023-04-17 13:25:28,355:INFO:The value of 45 is: 2023-01-15 00:59:59
+2023-04-17 13:25:28,429:INFO:The value of 46 is: 2023-01-15 01:59:59
+2023-04-17 13:25:28,502:INFO:The value of 47 is: 2023-01-15 02:59:59
+2023-04-17 13:25:28,578:INFO:The value of 48 is: 2023-01-15 03:59:59
+2023-04-17 13:25:28,649:INFO:The value of 49 is: 2023-01-15 04:59:59
+2023-04-17 13:25:28,723:INFO:The value of 50 is: 2023-01-15 05:59:59
+2023-04-17 13:25:28,797:INFO:The value of 51 is: 2023-01-15 06:59:59
+2023-04-17 13:25:28,871:INFO:The value of 52 is: 2023-01-15 07:59:59
+2023-04-17 13:25:28,944:INFO:The value of 53 is: 2023-01-15 08:59:59
+2023-04-17 13:25:29,018:INFO:The value of 54 is: 2023-01-15 09:59:59
+2023-04-17 13:25:29,097:INFO:The value of 55 is: 2023-01-15 10:59:59
+2023-04-17 13:25:29,170:INFO:The value of 56 is: 2023-01-15 11:59:59
+2023-04-17 13:25:29,244:INFO:The value of 57 is: 2023-01-15 12:59:59
+2023-04-17 13:25:29,318:INFO:The value of 58 is: 2023-01-15 13:59:59
+2023-04-17 13:25:29,392:INFO:The value of 59 is: 2023-01-15 14:59:59
+2023-04-17 13:25:29,465:INFO:The value of 60 is: 2023-01-15 15:59:59
+2023-04-17 13:25:29,539:INFO:The value of 61 is: 2023-01-15 16:59:59
+2023-04-17 13:25:29,613:INFO:The value of 62 is: 2023-01-15 17:59:59
+2023-04-17 13:25:29,686:INFO:The value of 63 is: 2023-01-15 18:59:59
+2023-04-17 13:25:29,760:INFO:The value of 64 is: 2023-01-15 19:59:59
+2023-04-17 13:25:29,833:INFO:The value of 65 is: 2023-01-15 20:59:59
+2023-04-17 13:25:29,907:INFO:The value of 66 is: 2023-01-15 21:59:59
+2023-04-17 13:25:29,980:INFO:The value of 67 is: 2023-01-15 22:59:59
+2023-04-17 13:25:30,054:INFO:The value of 68 is: 2023-01-15 23:59:59
+2023-04-17 13:25:30,133:INFO:The value of 69 is: 2023-01-16 00:59:59
+2023-04-17 13:25:30,207:INFO:The value of 70 is: 2023-01-16 01:59:59
+2023-04-17 13:25:30,281:INFO:The value of 71 is: 2023-01-16 02:59:59
+2023-04-17 13:25:30,354:INFO:The value of 72 is: 2023-01-16 03:59:59
+2023-04-17 13:25:30,428:INFO:The value of 73 is: 2023-01-16 04:59:59
+2023-04-17 13:25:30,502:INFO:The value of 74 is: 2023-01-16 05:59:59
+2023-04-17 13:25:30,575:INFO:The value of 75 is: 2023-01-16 06:59:59
+2023-04-17 13:25:30,654:INFO:The value of 76 is: 2023-01-16 07:59:59
+2023-04-17 13:25:30,728:INFO:The value of 77 is: 2023-01-16 08:59:59
+2023-04-17 13:25:30,802:INFO:The value of 78 is: 2023-01-16 09:59:59
+2023-04-17 13:25:30,875:INFO:The value of 79 is: 2023-01-16 10:59:59
+2023-04-17 13:25:30,948:INFO:The value of 80 is: 2023-01-16 11:59:59
+2023-04-17 13:25:31,022:INFO:The value of 81 is: 2023-01-16 12:59:59
+2023-04-17 13:25:31,096:INFO:The value of 82 is: 2023-01-16 13:59:59
+2023-04-17 13:25:31,169:INFO:The value of 83 is: 2023-01-16 14:59:59
+2023-04-17 13:25:31,243:INFO:The value of 84 is: 2023-01-16 15:59:59
+2023-04-17 13:25:31,317:INFO:The value of 85 is: 2023-01-16 16:59:59
+2023-04-17 13:25:31,390:INFO:The value of 86 is: 2023-01-16 17:59:59
+2023-04-17 13:25:31,465:INFO:The value of 87 is: 2023-01-16 18:59:59
+2023-04-17 13:25:31,538:INFO:The value of 88 is: 2023-01-16 19:59:59
+2023-04-17 13:25:31,611:INFO:The value of 89 is: 2023-01-16 20:59:59
+2023-04-17 13:25:31,690:INFO:The value of 90 is: 2023-01-16 21:59:59
+2023-04-17 13:25:31,763:INFO:The value of 91 is: 2023-01-16 22:59:59
+2023-04-17 13:25:31,838:INFO:The value of 92 is: 2023-01-16 23:59:59
+2023-04-17 13:25:31,911:INFO:The value of 93 is: 2023-01-17 00:59:59
+2023-04-17 13:25:31,985:INFO:The value of 94 is: 2023-01-17 01:59:59
+2023-04-17 13:25:32,058:INFO:The value of 95 is: 2023-01-17 02:59:59
+2023-04-17 13:25:32,132:INFO:The value of 96 is: 2023-01-17 03:59:59
+2023-04-17 13:25:32,211:INFO:The value of 97 is: 2023-01-17 04:59:59
+2023-04-17 13:25:32,285:INFO:The value of 98 is: 2023-01-17 05:59:59
+2023-04-17 13:25:32,359:INFO:The value of 99 is: 2023-01-17 06:59:59
+2023-04-17 13:25:32,432:INFO:The value of 100 is: 2023-01-17 07:59:59
+2023-04-17 13:25:32,505:INFO:The value of 101 is: 2023-01-17 08:59:59
+2023-04-17 13:25:32,580:INFO:The value of 102 is: 2023-01-17 09:59:59
+2023-04-17 13:25:32,653:INFO:The value of 103 is: 2023-01-17 10:59:59
+2023-04-17 13:25:32,727:INFO:The value of 104 is: 2023-01-17 11:59:59
+2023-04-17 13:25:32,800:INFO:The value of 105 is: 2023-01-17 12:59:59
+2023-04-17 13:25:32,875:INFO:The value of 106 is: 2023-01-17 13:59:59
+2023-04-17 13:25:32,948:INFO:The value of 107 is: 2023-01-17 14:59:59
+2023-04-17 13:25:33,022:INFO:The value of 108 is: 2023-01-17 15:59:59
+2023-04-17 13:25:33,095:INFO:The value of 109 is: 2023-01-17 16:59:59
+2023-04-17 13:25:33,169:INFO:The value of 110 is: 2023-01-17 17:59:59
+2023-04-17 13:25:33,248:INFO:The value of 111 is: 2023-01-17 18:59:59
+2023-04-17 13:25:33,322:INFO:The value of 112 is: 2023-01-17 19:59:59
+2023-04-17 13:25:33,396:INFO:The value of 113 is: 2023-01-17 20:59:59
+2023-04-17 13:25:33,469:INFO:The value of 114 is: 2023-01-17 21:59:59
+2023-04-17 13:25:33,543:INFO:The value of 115 is: 2023-01-17 22:59:59
+2023-04-17 13:25:33,617:INFO:The value of 116 is: 2023-01-17 23:59:59
+2023-04-17 13:25:33,690:INFO:The value of 117 is: 2023-01-18 00:59:59
+2023-04-17 13:25:33,769:INFO:The value of 118 is: 2023-01-18 01:59:59
+2023-04-17 13:25:33,843:INFO:The value of 119 is: 2023-01-18 02:59:59
+2023-04-17 13:25:33,916:INFO:The value of 120 is: 2023-01-18 03:59:59
+2023-04-17 13:25:33,990:INFO:The value of 121 is: 2023-01-18 04:59:59
+2023-04-17 13:25:34,063:INFO:The value of 122 is: 2023-01-18 05:59:59
+2023-04-17 13:25:34,100:INFO:The value of 123 is: 2023-01-18 06:59:59
+2023-04-17 13:25:34,174:INFO:The value of 124 is: 2023-01-18 07:59:59
+2023-04-17 13:25:34,253:INFO:The value of 125 is: 2023-01-18 08:59:59
+2023-04-17 13:25:34,327:INFO:The value of 126 is: 2023-01-18 09:59:59
+2023-04-17 13:25:34,401:INFO:The value of 127 is: 2023-01-18 10:59:59
+2023-04-17 13:25:34,475:INFO:The value of 128 is: 2023-01-18 11:59:59
+2023-04-17 13:25:34,548:INFO:The value of 129 is: 2023-01-18 12:59:59
+2023-04-17 13:25:34,622:INFO:The value of 130 is: 2023-01-18 13:59:59
+2023-04-17 13:25:34,696:INFO:The value of 131 is: 2023-01-18 14:59:59
+2023-04-17 13:25:34,774:INFO:The value of 132 is: 2023-01-18 15:59:59
+2023-04-17 13:25:34,848:INFO:The value of 133 is: 2023-01-18 16:59:59
+2023-04-17 13:25:34,922:INFO:The value of 134 is: 2023-01-18 17:59:59
+2023-04-17 13:25:34,995:INFO:The value of 135 is: 2023-01-18 18:59:59
+2023-04-17 13:25:35,069:INFO:The value of 136 is: 2023-01-18 19:59:59
+2023-04-17 13:25:35,142:INFO:The value of 137 is: 2023-01-18 20:59:59
+2023-04-17 13:25:35,216:INFO:The value of 138 is: 2023-01-18 21:59:59
+2023-04-17 13:25:35,296:INFO:The value of 139 is: 2023-01-18 22:59:59
+2023-04-17 13:25:35,368:INFO:The value of 140 is: 2023-01-18 23:59:59
+2023-04-17 13:25:35,442:INFO:The value of 141 is: 2023-01-19 00:59:59
+2023-04-17 13:25:35,516:INFO:The value of 142 is: 2023-01-19 01:59:59
+2023-04-17 13:25:35,589:INFO:The value of 143 is: 2023-01-19 02:59:59
+2023-04-17 13:25:35,663:INFO:The value of 144 is: 2023-01-19 03:59:59
+2023-04-17 13:25:35,737:INFO:The value of 145 is: 2023-01-19 04:59:59
+2023-04-17 13:25:35,810:INFO:The value of 146 is: 2023-01-19 05:59:59
+2023-04-17 13:25:35,884:INFO:The value of 147 is: 2023-01-19 06:59:59
+2023-04-17 13:25:35,957:INFO:The value of 148 is: 2023-01-19 07:59:59
+2023-04-17 13:25:36,031:INFO:The value of 149 is: 2023-01-19 08:59:59
+2023-04-17 13:25:36,105:INFO:The value of 150 is: 2023-01-19 09:59:59
+2023-04-17 13:25:36,179:INFO:The value of 151 is: 2023-01-19 10:59:59
+2023-04-17 13:25:36,252:INFO:The value of 152 is: 2023-01-19 11:59:59
+2023-04-17 13:25:36,332:INFO:The value of 153 is: 2023-01-19 12:59:59
+2023-04-17 13:25:36,405:INFO:The value of 154 is: 2023-01-19 13:59:59
+2023-04-17 13:25:36,478:INFO:The value of 155 is: 2023-01-19 14:59:59
+2023-04-17 13:25:36,553:ERROR:Invalid date-time value for 156 : 0-0-0 0:0:0
+2023-04-17 13:25:36,627:INFO:The value of 157 is: 2023-01-11 08:59:59
+2023-04-17 13:25:36,700:INFO:The value of 158 is: 2023-01-11 09:59:59
+2023-04-17 13:25:36,773:INFO:The value of 159 is: 2023-01-11 10:59:59
+2023-04-17 13:25:36,853:INFO:The value of 160 is: 2023-01-11 11:59:59
+2023-04-17 13:25:36,926:INFO:The value of 161 is: 2023-01-11 12:59:59
+2023-04-17 13:25:37,000:INFO:The value of 162 is: 2023-01-11 13:59:59
+2023-04-17 13:25:37,073:INFO:The value of 163 is: 2023-01-11 14:59:59
+2023-04-17 13:25:37,146:INFO:The value of 164 is: 2023-01-11 15:59:59
+2023-04-17 13:25:37,221:INFO:The value of 165 is: 2023-01-11 16:59:59
+2023-04-17 13:25:37,294:INFO:The value of 166 is: 2023-01-11 17:59:59
+2023-04-17 13:25:37,368:INFO:The value of 167 is: 2023-01-11 18:59:59
+2023-04-17 13:25:37,441:INFO:The value of 168 is: 2023-01-11 19:59:59
+2023-04-17 13:25:37,515:INFO:The value of 169 is: 2023-01-11 20:59:59
+2023-04-17 13:25:37,589:INFO:The value of 170 is: 2023-01-11 21:59:59
+2023-04-17 13:25:37,663:INFO:The value of 171 is: 2023-01-11 22:59:59
+2023-04-17 13:25:37,737:INFO:The value of 172 is: 2023-01-11 23:59:59
+2023-04-17 13:25:37,810:INFO:The value of 173 is: 2023-01-12 00:59:59
+2023-04-17 13:25:37,884:INFO:The value of 174 is: 2023-01-12 01:59:59
+2023-04-17 13:25:37,957:INFO:The value of 175 is: 2023-01-12 02:59:59
+2023-04-17 13:25:38,030:INFO:The value of 176 is: 2023-01-12 03:59:59
+2023-04-17 13:25:38,105:INFO:The value of 177 is: 2023-01-12 04:59:59
+2023-04-17 13:25:38,178:INFO:The value of 178 is: 2023-01-12 05:59:59
+2023-04-17 13:25:38,251:INFO:The value of 179 is: 2023-01-12 06:59:59
+2023-04-17 13:25:38,325:INFO:The value of 180 is: 2023-01-12 07:59:59
+2023-04-17 13:25:38,399:INFO:The value of 181 is: 2023-01-12 08:59:59
+2023-04-17 13:25:38,473:INFO:The value of 182 is: 2023-01-12 09:59:59
+2023-04-17 13:25:38,546:INFO:The value of 183 is: 2023-01-12 10:59:59
+2023-04-17 13:25:38,620:INFO:The value of 184 is: 2023-01-12 11:59:59
+2023-04-17 13:25:38,695:INFO:The value of 185 is: 2023-01-12 12:59:59
+2023-04-17 13:25:38,768:INFO:The value of 186 is: 2023-01-12 13:59:59
+2023-04-17 13:25:38,847:INFO:The value of 187 is: 2023-01-12 14:59:59
+2023-04-17 13:25:38,920:INFO:The value of 188 is: 2023-01-12 15:59:59
+2023-04-17 13:25:38,994:INFO:The value of 189 is: 2023-01-12 16:59:59
+2023-04-17 13:25:39,067:INFO:The value of 190 is: 2023-01-12 17:59:59
+2023-04-17 13:25:39,140:INFO:The value of 191 is: 2023-01-12 18:59:59
+2023-04-17 13:25:39,214:INFO:The value of 192 is: 2023-01-12 19:59:59
+2023-04-17 13:25:39,288:INFO:The value of 193 is: 2023-01-12 20:59:59
+2023-04-17 13:25:39,367:INFO:The value of 194 is: 2023-01-12 21:59:59
+2023-04-17 13:25:39,441:INFO:The value of 195 is: 2023-01-12 22:59:59
+2023-04-17 13:25:39,513:INFO:The value of 196 is: 2023-01-12 23:59:59
+2023-04-17 13:25:39,588:INFO:The value of 197 is: 2023-01-13 00:59:59
+2023-04-17 13:25:39,662:INFO:The value of 198 is: 2023-01-13 01:59:59
+2023-04-17 13:25:39,735:INFO:The value of 199 is: 2023-01-13 02:59:59
+2023-04-17 13:25:39,735:INFO:couldn't get a match on search all , stage 3 Checking the closest date now
+2023-04-17 13:25:39,735:INFO:The closest date-time value is: 2023-01-18 05:59:59
+2023-04-17 13:34:45,366:INFO:Connected to the PLC
+2023-04-17 13:34:45,366:INFO:tage 1 checking if db is having same read
+2023-04-17 13:34:45,465:INFO:The value of 123 is: 2023-01-18 06:59:59
+2023-04-17 13:34:45,465:INFO:Couldn't match, stage 2 searching all
+2023-04-17 13:34:45,536:INFO:The value of 0 is: 2023-01-13 03:59:59
+2023-04-17 13:34:45,609:INFO:The value of 1 is: 2023-01-13 04:59:59
+2023-04-17 13:34:45,683:INFO:The value of 2 is: 2023-01-13 05:59:59
+2023-04-17 13:34:45,757:INFO:The value of 3 is: 2023-01-13 06:59:59
+2023-04-17 13:34:45,830:INFO:The value of 4 is: 2023-01-13 07:59:59
+2023-04-17 13:34:45,904:INFO:The value of 5 is: 2023-01-13 08:59:59
+2023-04-17 13:34:45,978:INFO:The value of 6 is: 2023-01-13 09:59:59
+2023-04-17 13:34:46,052:INFO:The value of 7 is: 2023-01-13 10:59:59
+2023-04-17 13:34:46,125:INFO:The value of 8 is: 2023-01-13 11:59:59
+2023-04-17 13:34:46,199:INFO:The value of 9 is: 2023-01-13 12:59:59
+2023-04-17 13:34:46,273:INFO:The value of 10 is: 2023-01-13 13:59:59
+2023-04-17 13:34:46,346:INFO:The value of 11 is: 2023-01-13 14:59:59
+2023-04-17 13:34:46,420:INFO:The value of 12 is: 2023-01-13 15:59:59
+2023-04-17 13:34:46,495:INFO:The value of 13 is: 2023-01-13 16:59:59
+2023-04-17 13:34:46,567:INFO:The value of 14 is: 2023-01-13 17:59:59
+2023-04-17 13:34:46,641:INFO:The value of 15 is: 2023-01-13 18:59:59
+2023-04-17 13:34:46,714:INFO:The value of 16 is: 2023-01-13 19:59:59
+2023-04-17 13:34:46,788:INFO:The value of 17 is: 2023-01-13 20:59:59
+2023-04-17 13:34:46,862:INFO:The value of 18 is: 2023-01-13 21:59:59
+2023-04-17 13:34:46,936:INFO:The value of 19 is: 2023-01-13 22:59:59
+2023-04-17 13:34:47,009:INFO:The value of 20 is: 2023-01-13 23:59:59
+2023-04-17 13:34:47,083:INFO:The value of 21 is: 2023-01-14 00:59:59
+2023-04-17 13:34:47,157:INFO:The value of 22 is: 2023-01-14 01:59:59
+2023-04-17 13:34:47,230:INFO:The value of 23 is: 2023-01-14 02:59:59
+2023-04-17 13:34:47,304:INFO:The value of 24 is: 2023-01-14 03:59:59
+2023-04-17 13:34:47,377:INFO:The value of 25 is: 2023-01-14 04:59:59
+2023-04-17 13:34:47,456:INFO:The value of 26 is: 2023-01-14 05:59:59
+2023-04-17 13:34:47,530:INFO:The value of 27 is: 2023-01-14 06:59:59
+2023-04-17 13:34:47,603:INFO:The value of 28 is: 2023-01-14 07:59:59
+2023-04-17 13:34:47,678:INFO:The value of 29 is: 2023-01-14 08:59:59
+2023-04-17 13:34:47,751:INFO:The value of 30 is: 2023-01-14 09:59:59
+2023-04-17 13:34:47,825:INFO:The value of 31 is: 2023-01-14 10:59:59
+2023-04-17 13:34:47,899:INFO:The value of 32 is: 2023-01-14 11:59:59
+2023-04-17 13:34:47,972:INFO:The value of 33 is: 2023-01-14 12:59:59
+2023-04-17 13:34:48,045:INFO:The value of 34 is: 2023-01-14 13:59:59
+2023-04-17 13:34:48,120:INFO:The value of 35 is: 2023-01-14 14:59:59
+2023-04-17 13:34:48,193:INFO:The value of 36 is: 2023-01-14 15:59:59
+2023-04-17 13:34:48,266:INFO:The value of 37 is: 2023-01-14 16:59:59
+2023-04-17 13:34:48,340:INFO:The value of 38 is: 2023-01-14 17:59:59
+2023-04-17 13:34:48,414:INFO:The value of 39 is: 2023-01-14 18:59:59
+2023-04-17 13:34:48,488:INFO:The value of 40 is: 2023-01-14 19:59:59
+2023-04-17 13:34:48,561:INFO:The value of 41 is: 2023-01-14 20:59:59
+2023-04-17 13:34:48,635:INFO:The value of 42 is: 2023-01-14 21:59:59
+2023-04-17 13:34:48,709:INFO:The value of 43 is: 2023-01-14 22:59:59
+2023-04-17 13:34:48,782:INFO:The value of 44 is: 2023-01-14 23:59:59
+2023-04-17 13:34:48,855:INFO:The value of 45 is: 2023-01-15 00:59:59
+2023-04-17 13:34:48,935:INFO:The value of 46 is: 2023-01-15 01:59:59
+2023-04-17 13:34:49,009:INFO:The value of 47 is: 2023-01-15 02:59:59
+2023-04-17 13:34:49,082:INFO:The value of 48 is: 2023-01-15 03:59:59
+2023-04-17 13:34:49,156:INFO:The value of 49 is: 2023-01-15 04:59:59
+2023-04-17 13:34:49,229:INFO:The value of 50 is: 2023-01-15 05:59:59
+2023-04-17 13:34:49,303:INFO:The value of 51 is: 2023-01-15 06:59:59
+2023-04-17 13:34:49,376:INFO:The value of 52 is: 2023-01-15 07:59:59
+2023-04-17 13:34:49,450:INFO:The value of 53 is: 2023-01-15 08:59:59
+2023-04-17 13:34:49,524:INFO:The value of 54 is: 2023-01-15 09:59:59
+2023-04-17 13:34:49,598:INFO:The value of 55 is: 2023-01-15 10:59:59
+2023-04-17 13:34:49,671:INFO:The value of 56 is: 2023-01-15 11:59:59
+2023-04-17 13:34:49,744:INFO:The value of 57 is: 2023-01-15 12:59:59
+2023-04-17 13:34:49,819:INFO:The value of 58 is: 2023-01-15 13:59:59
+2023-04-17 13:34:49,892:INFO:The value of 59 is: 2023-01-15 14:59:59
+2023-04-17 13:34:49,965:INFO:The value of 60 is: 2023-01-15 15:59:59
+2023-04-17 13:34:50,040:INFO:The value of 61 is: 2023-01-15 16:59:59
+2023-04-17 13:34:50,113:INFO:The value of 62 is: 2023-01-15 17:59:59
+2023-04-17 13:34:50,187:INFO:The value of 63 is: 2023-01-15 18:59:59
+2023-04-17 13:34:50,263:INFO:The value of 64 is: 2023-01-15 19:59:59
+2023-04-17 13:34:50,335:INFO:The value of 65 is: 2023-01-15 20:59:59
+2023-04-17 13:34:50,408:INFO:The value of 66 is: 2023-01-15 21:59:59
+2023-04-17 13:34:50,487:INFO:The value of 67 is: 2023-01-15 22:59:59
+2023-04-17 13:34:50,561:INFO:The value of 68 is: 2023-01-15 23:59:59
+2023-04-17 13:34:50,634:INFO:The value of 69 is: 2023-01-16 00:59:59
+2023-04-17 13:34:50,708:INFO:The value of 70 is: 2023-01-16 01:59:59
+2023-04-17 13:34:50,782:INFO:The value of 71 is: 2023-01-16 02:59:59
+2023-04-17 13:34:50,855:INFO:The value of 72 is: 2023-01-16 03:59:59
+2023-04-17 13:34:50,929:INFO:The value of 73 is: 2023-01-16 04:59:59
+2023-04-17 13:34:51,003:INFO:The value of 74 is: 2023-01-16 05:59:59
+2023-04-17 13:34:51,076:INFO:The value of 75 is: 2023-01-16 06:59:59
+2023-04-17 13:34:51,150:INFO:The value of 76 is: 2023-01-16 07:59:59
+2023-04-17 13:34:51,223:INFO:The value of 77 is: 2023-01-16 08:59:59
+2023-04-17 13:34:51,297:INFO:The value of 78 is: 2023-01-16 09:59:59
+2023-04-17 13:34:51,371:INFO:The value of 79 is: 2023-01-16 10:59:59
+2023-04-17 13:34:51,444:INFO:The value of 80 is: 2023-01-16 11:59:59
+2023-04-17 13:34:51,518:INFO:The value of 81 is: 2023-01-16 12:59:59
+2023-04-17 13:34:51,592:INFO:The value of 82 is: 2023-01-16 13:59:59
+2023-04-17 13:34:51,665:INFO:The value of 83 is: 2023-01-16 14:59:59
+2023-04-17 13:34:51,739:INFO:The value of 84 is: 2023-01-16 15:59:59
+2023-04-17 13:34:51,813:INFO:The value of 85 is: 2023-01-16 16:59:59
+2023-04-17 13:34:51,887:INFO:The value of 86 is: 2023-01-16 17:59:59
+2023-04-17 13:34:51,961:INFO:The value of 87 is: 2023-01-16 18:59:59
+2023-04-17 13:34:52,039:INFO:The value of 88 is: 2023-01-16 19:59:59
+2023-04-17 13:34:52,113:INFO:The value of 89 is: 2023-01-16 20:59:59
+2023-04-17 13:34:52,187:INFO:The value of 90 is: 2023-01-16 21:59:59
+2023-04-17 13:34:52,261:INFO:The value of 91 is: 2023-01-16 22:59:59
+2023-04-17 13:34:52,334:INFO:The value of 92 is: 2023-01-16 23:59:59
+2023-04-17 13:34:52,407:INFO:The value of 93 is: 2023-01-17 00:59:59
+2023-04-17 13:34:52,481:INFO:The value of 94 is: 2023-01-17 01:59:59
+2023-04-17 13:34:52,560:INFO:The value of 95 is: 2023-01-17 02:59:59
+2023-04-17 13:34:52,634:INFO:The value of 96 is: 2023-01-17 03:59:59
+2023-04-17 13:34:52,708:INFO:The value of 97 is: 2023-01-17 04:59:59
+2023-04-17 13:34:52,781:INFO:The value of 98 is: 2023-01-17 05:59:59
+2023-04-17 13:34:52,855:INFO:The value of 99 is: 2023-01-17 06:59:59
+2023-04-17 13:34:52,929:INFO:The value of 100 is: 2023-01-17 07:59:59
+2023-04-17 13:34:53,002:INFO:The value of 101 is: 2023-01-17 08:59:59
+2023-04-17 13:34:53,080:INFO:The value of 102 is: 2023-01-17 09:59:59
+2023-04-17 13:34:53,154:INFO:The value of 103 is: 2023-01-17 10:59:59
+2023-04-17 13:34:53,228:INFO:The value of 104 is: 2023-01-17 11:59:59
+2023-04-17 13:34:53,301:INFO:The value of 105 is: 2023-01-17 12:59:59
+2023-04-17 13:34:53,374:INFO:The value of 106 is: 2023-01-17 13:59:59
+2023-04-17 13:34:53,449:INFO:The value of 107 is: 2023-01-17 14:59:59
+2023-04-17 13:34:53,523:INFO:The value of 108 is: 2023-01-17 15:59:59
+2023-04-17 13:34:53,596:INFO:The value of 109 is: 2023-01-17 16:59:59
+2023-04-17 13:34:53,669:INFO:The value of 110 is: 2023-01-17 17:59:59
+2023-04-17 13:34:53,744:INFO:The value of 111 is: 2023-01-17 18:59:59
+2023-04-17 13:34:53,816:INFO:The value of 112 is: 2023-01-17 19:59:59
+2023-04-17 13:34:53,891:INFO:The value of 113 is: 2023-01-17 20:59:59
+2023-04-17 13:34:53,965:INFO:The value of 114 is: 2023-01-17 21:59:59
+2023-04-17 13:34:54,038:INFO:The value of 115 is: 2023-01-17 22:59:59
+2023-04-17 13:34:54,117:INFO:The value of 116 is: 2023-01-17 23:59:59
+2023-04-17 13:34:54,190:INFO:The value of 117 is: 2023-01-18 00:59:59
+2023-04-17 13:34:54,264:INFO:The value of 118 is: 2023-01-18 01:59:59
+2023-04-17 13:34:54,337:INFO:The value of 119 is: 2023-01-18 02:59:59
+2023-04-17 13:34:54,411:INFO:The value of 120 is: 2023-01-18 03:59:59
+2023-04-17 13:34:54,485:INFO:The value of 121 is: 2023-01-18 04:59:59
+2023-04-17 13:34:54,559:INFO:The value of 122 is: 2023-01-18 05:59:59
+2023-04-17 13:34:54,596:INFO:The value of 123 is: 2023-01-18 06:59:59
+2023-04-17 13:34:54,669:INFO:The value of 124 is: 2023-01-18 07:59:59
+2023-04-17 13:34:54,743:INFO:The value of 125 is: 2023-01-18 08:59:59
+2023-04-17 13:34:54,816:INFO:The value of 126 is: 2023-01-18 09:59:59
+2023-04-17 13:34:54,889:INFO:The value of 127 is: 2023-01-18 10:59:59
+2023-04-17 13:34:54,963:INFO:The value of 128 is: 2023-01-18 11:59:59
+2023-04-17 13:34:55,037:INFO:The value of 129 is: 2023-01-18 12:59:59
+2023-04-17 13:34:55,110:INFO:The value of 130 is: 2023-01-18 13:59:59
+2023-04-17 13:34:55,185:INFO:The value of 131 is: 2023-01-18 14:59:59
+2023-04-17 13:34:55,258:INFO:The value of 132 is: 2023-01-18 15:59:59
+2023-04-17 13:34:55,331:INFO:The value of 133 is: 2023-01-18 16:59:59
+2023-04-17 13:34:55,405:INFO:The value of 134 is: 2023-01-18 17:59:59
+2023-04-17 13:34:55,479:INFO:The value of 135 is: 2023-01-18 18:59:59
+2023-04-17 13:34:55,553:INFO:The value of 136 is: 2023-01-18 19:59:59
+2023-04-17 13:34:55,631:INFO:The value of 137 is: 2023-01-18 20:59:59
+2023-04-17 13:34:55,705:INFO:The value of 138 is: 2023-01-18 21:59:59
+2023-04-17 13:34:55,779:INFO:The value of 139 is: 2023-01-18 22:59:59
+2023-04-17 13:34:55,852:INFO:The value of 140 is: 2023-01-18 23:59:59
+2023-04-17 13:34:55,926:INFO:The value of 141 is: 2023-01-19 00:59:59
+2023-04-17 13:34:55,999:INFO:The value of 142 is: 2023-01-19 01:59:59
+2023-04-17 13:34:56,078:INFO:The value of 143 is: 2023-01-19 02:59:59
+2023-04-17 13:34:56,152:INFO:The value of 144 is: 2023-01-19 03:59:59
+2023-04-17 13:34:56,225:INFO:The value of 145 is: 2023-01-19 04:59:59
+2023-04-17 13:34:56,300:INFO:The value of 146 is: 2023-01-19 05:59:59
+2023-04-17 13:34:56,373:INFO:The value of 147 is: 2023-01-19 06:59:59
+2023-04-17 13:34:56,446:INFO:The value of 148 is: 2023-01-19 07:59:59
+2023-04-17 13:34:56,521:INFO:The value of 149 is: 2023-01-19 08:59:59
+2023-04-17 13:34:56,597:INFO:The value of 150 is: 2023-01-19 09:59:59
+2023-04-17 13:34:56,669:INFO:The value of 151 is: 2023-01-19 10:59:59
+2023-04-17 13:34:56,742:INFO:The value of 152 is: 2023-01-19 11:59:59
+2023-04-17 13:34:56,816:INFO:The value of 153 is: 2023-01-19 12:59:59
+2023-04-17 13:34:56,889:INFO:The value of 154 is: 2023-01-19 13:59:59
+2023-04-17 13:34:56,963:INFO:The value of 155 is: 2023-01-19 14:59:59
+2023-04-17 13:34:57,037:ERROR:Invalid date-time value for 156 : 0-0-0 0:0:0
+2023-04-17 13:34:57,110:INFO:The value of 157 is: 2023-01-11 08:59:59
+2023-04-17 13:34:57,184:INFO:The value of 158 is: 2023-01-11 09:59:59
+2023-04-17 13:34:57,258:INFO:The value of 159 is: 2023-01-11 10:59:59
+2023-04-17 13:34:57,331:INFO:The value of 160 is: 2023-01-11 11:59:59
+2023-04-17 13:34:57,405:INFO:The value of 161 is: 2023-01-11 12:59:59
+2023-04-17 13:34:57,479:INFO:The value of 162 is: 2023-01-11 13:59:59
+2023-04-17 13:34:57,552:INFO:The value of 163 is: 2023-01-11 14:59:59
+2023-04-17 13:34:57,627:INFO:The value of 164 is: 2023-01-11 15:59:59
+2023-04-17 13:34:57,700:INFO:The value of 165 is: 2023-01-11 16:59:59
+2023-04-17 13:34:57,773:INFO:The value of 166 is: 2023-01-11 17:59:59
+2023-04-17 13:34:57,847:INFO:The value of 167 is: 2023-01-11 18:59:59
+2023-04-17 13:34:57,921:INFO:The value of 168 is: 2023-01-11 19:59:59
+2023-04-17 13:34:57,994:INFO:The value of 169 is: 2023-01-11 20:59:59
+2023-04-17 13:34:58,068:INFO:The value of 170 is: 2023-01-11 21:59:59
+2023-04-17 13:34:58,147:INFO:The value of 171 is: 2023-01-11 22:59:59
+2023-04-17 13:34:58,220:INFO:The value of 172 is: 2023-01-11 23:59:59
+2023-04-17 13:34:58,294:INFO:The value of 173 is: 2023-01-12 00:59:59
+2023-04-17 13:34:58,367:INFO:The value of 174 is: 2023-01-12 01:59:59
+2023-04-17 13:34:58,441:INFO:The value of 175 is: 2023-01-12 02:59:59
+2023-04-17 13:34:58,515:INFO:The value of 176 is: 2023-01-12 03:59:59
+2023-04-17 13:34:58,589:INFO:The value of 177 is: 2023-01-12 04:59:59
+2023-04-17 13:34:58,663:INFO:The value of 178 is: 2023-01-12 05:59:59
+2023-04-17 13:34:58,736:INFO:The value of 179 is: 2023-01-12 06:59:59
+2023-04-17 13:34:58,810:INFO:The value of 180 is: 2023-01-12 07:59:59
+2023-04-17 13:34:58,884:INFO:The value of 181 is: 2023-01-12 08:59:59
+2023-04-17 13:34:58,957:INFO:The value of 182 is: 2023-01-12 09:59:59
+2023-04-17 13:34:59,031:INFO:The value of 183 is: 2023-01-12 10:59:59
+2023-04-17 13:34:59,104:INFO:The value of 184 is: 2023-01-12 11:59:59
+2023-04-17 13:34:59,178:INFO:The value of 185 is: 2023-01-12 12:59:59
+2023-04-17 13:34:59,251:INFO:The value of 186 is: 2023-01-12 13:59:59
+2023-04-17 13:34:59,325:INFO:The value of 187 is: 2023-01-12 14:59:59
+2023-04-17 13:34:59,399:INFO:The value of 188 is: 2023-01-12 15:59:59
+2023-04-17 13:34:59,473:INFO:The value of 189 is: 2023-01-12 16:59:59
+2023-04-17 13:34:59,546:INFO:The value of 190 is: 2023-01-12 17:59:59
+2023-04-17 13:34:59,620:INFO:The value of 191 is: 2023-01-12 18:59:59
+2023-04-17 13:34:59,694:INFO:The value of 192 is: 2023-01-12 19:59:59
+2023-04-17 13:34:59,768:INFO:The value of 193 is: 2023-01-12 20:59:59
+2023-04-17 13:34:59,841:INFO:The value of 194 is: 2023-01-12 21:59:59
+2023-04-17 13:34:59,915:INFO:The value of 195 is: 2023-01-12 22:59:59
+2023-04-17 13:34:59,988:INFO:The value of 196 is: 2023-01-12 23:59:59
+2023-04-17 13:35:00,062:INFO:The value of 197 is: 2023-01-13 00:59:59
+2023-04-17 13:35:00,136:INFO:The value of 198 is: 2023-01-13 01:59:59
+2023-04-17 13:35:00,209:INFO:The value of 199 is: 2023-01-13 02:59:59
+2023-04-17 13:35:00,209:INFO:couldn't get a match on search all , stage 3 Checking the closest date now
+2023-04-17 13:35:00,209:INFO:The closest date-time value is: 2023-01-18 05:59:59
+2023-04-17 13:47:20,580:INFO:Connected to the PLC
+2023-04-17 13:53:46,935:INFO:Connected to the PLC
+2023-04-17 13:54:05,921:INFO:Connected to the PLC
+2023-04-17 15:20:39,118:INFO:Connected to the PLC
+2023-04-17 15:25:19,594:INFO:Connected to the PLC
+2023-04-17 15:31:29,974:INFO:Connected to the PLC
+2023-04-17 15:32:33,603:INFO:Connected to the PLC
+2023-04-17 15:33:15,024:INFO:Connected to the PLC
+2023-04-17 15:34:21,827:INFO:Connected to the PLC
+2023-04-17 15:34:33,124:ERROR:Read failed for tag report_data at number 123 at record 125
+2023-04-17 15:34:33,139:ERROR:Read failed for tag report_data at number 123 at record 126
+2023-04-17 15:34:33,155:ERROR:Read failed for tag report_data at number 123 at record 127
+2023-04-17 15:34:33,170:ERROR:Read failed for tag report_data at number 123 at record 128
+2023-04-17 15:34:33,186:ERROR:Read failed for tag report_data at number 123 at record 129
+2023-04-17 15:34:33,202:ERROR:Read failed for tag report_data at number 123 at record 130
+2023-04-17 15:34:33,218:ERROR:Read failed for tag report_data at number 123 at record 131
+2023-04-17 15:34:33,234:ERROR:Read failed for tag report_data at number 123 at record 132
+2023-04-17 15:34:33,249:ERROR:Read failed for tag report_data at number 123 at record 133
+2023-04-17 15:34:33,265:ERROR:Read failed for tag report_data at number 123 at record 134
+2023-04-17 15:34:33,281:ERROR:Read failed for tag report_data at number 123 at record 135
+2023-04-17 15:34:33,296:ERROR:Read failed for tag report_data at number 123 at record 136
+2023-04-17 15:34:33,312:ERROR:Read failed for tag report_data at number 123 at record 137
+2023-04-17 15:34:33,328:ERROR:Read failed for tag report_data at number 123 at record 138
+2023-04-17 15:34:33,344:ERROR:Read failed for tag report_data at number 123 at record 139
+2023-04-17 15:34:33,360:ERROR:Read failed for tag report_data at number 123 at record 140
+2023-04-17 15:34:33,375:ERROR:Read failed for tag report_data at number 123 at record 141
+2023-04-17 15:34:33,392:ERROR:Read failed for tag report_data at number 123 at record 142
+2023-04-17 15:34:33,407:ERROR:Read failed for tag report_data at number 123 at record 143
+2023-04-17 15:34:33,423:ERROR:Read failed for tag report_data at number 123 at record 144
+2023-04-17 15:34:33,438:ERROR:Read failed for tag report_data at number 123 at record 145
+2023-04-17 15:34:33,454:ERROR:Read failed for tag report_data at number 123 at record 146
+2023-04-17 15:34:33,470:ERROR:Read failed for tag report_data at number 123 at record 147
+2023-04-17 15:34:33,486:ERROR:Read failed for tag report_data at number 123 at record 148
+2023-04-17 15:34:33,502:ERROR:Read failed for tag report_data at number 123 at record 149
+2023-04-17 15:34:33,518:ERROR:Read failed for tag report_data at number 123 at record 150
+2023-04-17 15:34:33,534:ERROR:Read failed for tag report_data at number 123 at record 151
+2023-04-17 15:34:33,550:ERROR:Read failed for tag report_data at number 123 at record 152
+2023-04-17 15:34:33,565:ERROR:Read failed for tag report_data at number 123 at record 153
+2023-04-17 15:34:33,581:ERROR:Read failed for tag report_data at number 123 at record 154
+2023-04-17 15:34:33,597:ERROR:Read failed for tag report_data at number 123 at record 155
+2023-04-17 15:34:33,613:ERROR:Read failed for tag report_data at number 123 at record 156
+2023-04-17 15:34:33,628:ERROR:Read failed for tag report_data at number 123 at record 157
+2023-04-17 15:34:33,644:ERROR:Read failed for tag report_data at number 123 at record 158
+2023-04-17 15:34:33,660:ERROR:Read failed for tag report_data at number 123 at record 159
+2023-04-17 15:34:33,676:ERROR:Read failed for tag report_data at number 123 at record 160
+2023-04-17 15:34:33,691:ERROR:Read failed for tag report_data at number 123 at record 161
+2023-04-17 15:34:33,707:ERROR:Read failed for tag report_data at number 123 at record 162
+2023-04-17 15:34:33,722:ERROR:Read failed for tag report_data at number 123 at record 163
+2023-04-17 15:34:33,738:ERROR:Read failed for tag report_data at number 123 at record 164
+2023-04-17 15:34:33,754:ERROR:Read failed for tag report_data at number 123 at record 165
+2023-04-17 15:34:33,770:ERROR:Read failed for tag report_data at number 123 at record 166
+2023-04-17 15:34:33,785:ERROR:Read failed for tag report_data at number 123 at record 167
+2023-04-17 15:34:33,802:ERROR:Read failed for tag report_data at number 123 at record 168
+2023-04-17 15:34:33,817:ERROR:Read failed for tag report_data at number 123 at record 169
+2023-04-17 15:34:33,833:ERROR:Read failed for tag report_data at number 123 at record 170
+2023-04-17 15:34:33,849:ERROR:Read failed for tag report_data at number 123 at record 171
+2023-04-17 15:34:33,865:ERROR:Read failed for tag report_data at number 123 at record 172
+2023-04-17 15:34:33,880:ERROR:Read failed for tag report_data at number 123 at record 173
+2023-04-17 15:34:33,896:ERROR:Read failed for tag report_data at number 123 at record 174
+2023-04-17 15:34:33,912:ERROR:Read failed for tag report_data at number 123 at record 175
+2023-04-17 15:34:33,928:ERROR:Read failed for tag report_data at number 123 at record 176
+2023-04-17 15:34:33,944:ERROR:Read failed for tag report_data at number 123 at record 177
+2023-04-17 15:34:33,960:ERROR:Read failed for tag report_data at number 123 at record 178
+2023-04-17 15:34:33,975:ERROR:Read failed for tag report_data at number 123 at record 179
+2023-04-17 15:34:33,991:ERROR:Read failed for tag report_data at number 123 at record 180
+2023-04-17 15:34:34,006:ERROR:Read failed for tag report_data at number 123 at record 181
+2023-04-17 15:34:34,022:ERROR:Read failed for tag report_data at number 123 at record 182
+2023-04-17 15:34:34,038:ERROR:Read failed for tag report_data at number 123 at record 183
+2023-04-17 15:34:34,054:ERROR:Read failed for tag report_data at number 123 at record 184
+2023-04-17 15:34:34,070:ERROR:Read failed for tag report_data at number 123 at record 185
+2023-04-17 15:34:34,086:ERROR:Read failed for tag report_data at number 123 at record 186
+2023-04-17 15:34:34,101:ERROR:Read failed for tag report_data at number 123 at record 187
+2023-04-17 15:34:34,117:ERROR:Read failed for tag report_data at number 123 at record 188
+2023-04-17 15:34:34,133:ERROR:Read failed for tag report_data at number 123 at record 189
+2023-04-17 15:34:34,148:ERROR:Read failed for tag report_data at number 123 at record 190
+2023-04-17 15:34:34,164:ERROR:Read failed for tag report_data at number 123 at record 191
+2023-04-17 15:34:34,180:ERROR:Read failed for tag report_data at number 123 at record 192
+2023-04-17 15:34:34,196:ERROR:Read failed for tag report_data at number 123 at record 193
+2023-04-17 15:34:34,212:ERROR:Read failed for tag report_data at number 123 at record 194
+2023-04-17 15:34:34,228:ERROR:Read failed for tag report_data at number 123 at record 195
+2023-04-17 15:34:34,243:ERROR:Read failed for tag report_data at number 123 at record 196
+2023-04-17 15:34:34,259:ERROR:Read failed for tag report_data at number 123 at record 197
+2023-04-17 15:34:34,275:ERROR:Read failed for tag report_data at number 123 at record 198
+2023-04-17 15:34:34,291:ERROR:Read failed for tag report_data at number 123 at record 199
+2023-04-17 15:36:19,953:INFO:Connected to the PLC
+2023-04-17 15:37:16,758:INFO:Connected to the PLC
+2023-04-17 15:37:43,696:INFO:Connected to the PLC
+2023-04-17 15:40:04,409:INFO:Connected to the PLC
+2023-04-17 15:43:21,576:INFO:Connected to the PLC
+2023-04-17 15:55:44,874:INFO:Connected to the PLC
