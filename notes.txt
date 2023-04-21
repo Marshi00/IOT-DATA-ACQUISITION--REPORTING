@@ -1,1 +1,2 @@
 1-Check with Alex S , format for stop point
+2- Check docker possible dep
