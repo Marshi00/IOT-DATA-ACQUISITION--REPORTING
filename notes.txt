@@ -5,3 +5,4 @@
 5- updates
 6-ket rde srsly a new go
 7-ex & on
+8-plan
