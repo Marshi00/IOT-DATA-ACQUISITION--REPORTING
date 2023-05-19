@@ -10,3 +10,4 @@
 10- good things coming 
 11-  fix the stream & add 2x
 12- nc, getting opt for timing
+13- add up
