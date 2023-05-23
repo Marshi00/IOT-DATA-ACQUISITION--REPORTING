@@ -14,12 +14,12 @@ import pandas as pd
 
 # set up the connection to the PLC
 with PLC() as plc:
-    plc.IPAddress = '192.168.0.99'
+    plc.IPAddress = '192.168.0.31'
     connected = plc.IPAddress
 
     if connected:
         # read the tag 'MyTag' from the PLC
-        response = plc.Read('report_data[0].log_data[0].min')
+        response = plc.Read('report_data[0].log_data[0].total')
 
         # check if the read was successful
         if response.Status == "Success":

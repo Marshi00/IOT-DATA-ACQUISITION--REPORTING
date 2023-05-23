@@ -9,12 +9,13 @@ import logging
 logging.basicConfig(filename='log.txt', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
 
-PLC_IP = '192.168.0.99'
+PLC_IP = '192.168.0.31'
 TAG_CATEGORY = "report_data"
 START_HOURLY_RECORD = 0
-STOP_HOURLY_RECORD = 125
+STOP_HOURLY_RECORD = 26
 # TODO: Come from Timing Sys
 DATETIME_FROM_TIMING_SYS = datetime(2023, 1, 18, 5, 59, 39)
+END_POINT = True
 # TODO: Come from Timing Sys
 NUMBER_FROM_TIMING_SYS = 0
 TABLE_NAME = 'records_table'
@@ -48,8 +49,8 @@ def read_tag_record(plc_connection, tag_category: str, read_num: int, record_num
 
     if test_conn.Status != "Success":
         # TODO: LOG IT !
-        print(f"Read failed for tag {tag_category} at number {read_num} at record {record_num}")
-        logging.error(f"Read failed for tag {tag_category} at number {read_num} at record {record_num}")
+        print(f"Read failed for min value test, tag {tag_category} at number {read_num} at record {record_num}")
+        logging.error(f"Read failed for min value test, tag {tag_category} at number {read_num} at record {record_num}")
         return None
         #raise Exception(f"Read failed for tag {tag_category} at number {read_num} at record {record_num}")
 
@@ -83,33 +84,35 @@ with PLC() as plc:
     plc.IPAddress = PLC_IP
     connected = plc.IPAddress
     if connected:
-        record_list = []
         logging.info("Connected to the PLC")
         print("Connected to the PLC")
-        # read the tag 'MyTag' from the PLC
-        for i in range(START_HOURLY_RECORD, STOP_HOURLY_RECORD):
-            current_read_record = read_tag_record(plc_connection=plc, tag_category=TAG_CATEGORY,
-                                                  read_num=NUMBER_FROM_TIMING_SYS, record_num=i)
-            if current_read_record is not None:
-                # Append the dictionary to a list of dictionaries
-                record_list.append(current_read_record)
-            # Turn it into a data frame
-            df = pd.DataFrame(record_list)
-        print(df.head())
-        print(df.shape)
-        # Saving dataframe into a CSV
-        # TODO: Make dyno CSV with Datetime
-        # TODO: Folder Setup and if not exist Create ( Sample In Auto _ manu file )
-        # TODO: ADD ERROR handling
-        # Overwriting mode
-        df.to_csv('my_data.csv', mode='w', index=False)
+        while END_POINT != True:
+            record_list = []
+            # read the tag 'MyTag' from the PLC
+            for i in range(START_HOURLY_RECORD, STOP_HOURLY_RECORD):
+                current_read_record = read_tag_record(plc_connection=plc, tag_category=TAG_CATEGORY,
+                                                      read_num=NUMBER_FROM_TIMING_SYS, record_num=i)
+                if current_read_record is not None:
+                    # Append the dictionary to a list of dictionaries
+                    record_list.append(current_read_record)
+                # Turn it into a data frame
+                df = pd.DataFrame(record_list)
+            print(df.head())
+            print(df.shape)
+            # Saving dataframe into a CSV
+            # TODO: Make dyno CSV with Datetime
+            # TODO: Folder Setup and if not exist Create ( Sample In Auto _ manu file )
+            # TODO: ADD ERROR handling
+            # Overwriting mode
+            df.to_csv('my_data.csv', mode='w', index=False)
 
-        # If append needed for later
-        #new_df.to_csv('my_data.csv', mode='a', index=False, header=False)
+            # If append needed for later
+            #new_df.to_csv('my_data.csv', mode='a', index=False, header=False)
 
-        # TODO: DB setup
-        #df.to_sql(table_name, con=engine, if_exists='replace', index=False)
+            # TODO: DB setup
+            #df.to_sql(table_name, con=engine, if_exists='replace', index=False)
 
+            # Recheck Num + End Point REQ
     else:
         logging.info("Could not connect to PLC")
         print("Could not connect to PLC")

@@ -1,13 +1,3 @@
 1-Check with Alex S , format for stop point
 2- Check docker possible dep
 3- run keep to 0 record
-4- Test PLC run
-5- updates
-6-ket rde srsly a new go
-7-ex & on
-8-plan 
-9- uplaod ex9 done to github on weekend
-10- good things coming 
-11-  fix the stream & add 2x
-12- nc, getting opt for timing
-13- add up & last
