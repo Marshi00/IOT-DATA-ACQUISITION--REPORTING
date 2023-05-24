@@ -12,29 +12,28 @@ logging.basicConfig(filename='log.txt', level=logging.INFO,
 PLC_IP = '192.168.0.31'
 TAG_CATEGORY = "report_data"
 START_HOURLY_ARCHIVE = 0
-STOP_HOURLY_ARCHIVE = 200
+STOP_HOURLY_ARCHIVE = 199
 START_HOURLY_RECORD = 0
-STOP_HOURLY_RECORD = 26
+STOP_HOURLY_RECORD = 19
 
 # TODO: Come from DB
-LAST_READ_DATETIME_FROM_DB = datetime(2023, 1, 18, 5, 59, 39)
+LAST_READ_DATETIME_FROM_DB = datetime(2023, 1, 18, 8, 51, 59)
 # TODO: Come from DB
-LAST_READ_NUMBER_FROM_DB = 123
+LAST_READ_NUMBER_FROM_DB = 173
 
-# TODO: Come from Timing Sys
-DATETIME_FROM_TIMING_SYS = datetime(2023, 1, 18, 5, 59, 39)
-END_POINT = True
-# TODO: Come from Timing Sys
-NUMBER_FROM_TIMING_SYS = 0
+
+END_POINT = False
 TABLE_NAME = 'records_table'
+
+
 # TODO: CLOUD Azure MYSQL Setup
 
 # TODO: Check Conn Setup & update
 # Define the connection string to the MySQL database
-#connection_string = 'mysql+pymysql://username:password@hostname/database_name'
+# connection_string = 'mysql+pymysql://username:password@hostname/database_name'
 
 # Create the SQLAlchemy engine
-#engine = create_engine(connection_string)
+# engine = create_engine(connection_string)
 
 
 # function 0
@@ -46,10 +45,11 @@ def find_stop_datetime(plc_connection, tag_category: str, start_point: int) -> i
     """
     if not isinstance(tag_category, str):
         raise ValueError("Tag category must be a string")
-    # optimized to read from where it left on DB and stop once it find the target rather loop from start
-    for i in range(start_point, start_point + STOP_HOURLY_ARCHIVE + 1):
+    # optimized to read from where it left on DB and stop once it finds the target rather loop from start
+    for point in range(start_point, start_point + STOP_HOURLY_ARCHIVE + 1):
         # Construct tag path
-        target = i % (STOP_HOURLY_ARCHIVE + 1)
+        target = point % (STOP_HOURLY_ARCHIVE + 1)
+        print(f"target at search is {target}, the current point is {point}")
         tag_path = f'{tag_category}[{target}].time.'
 
         # Read all values for tag
@@ -58,8 +58,8 @@ def find_stop_datetime(plc_connection, tag_category: str, start_point: int) -> i
 
         if test_conn.Status != "Success":
             # TODO: LOG IT !
-            print(f"Read failed for tag {tag_category} at number {i}")
-            logging.error(f"Read failed for tag {tag_category} at number {i}")
+            print(f"Read failed for tag {tag_category} at number {point}")
+            logging.error(f"Read failed for tag {tag_category} at number {point}")
             return None
             # raise Exception(f"Read failed for tag {tag_category} at number {read_num}")
 
@@ -73,7 +73,9 @@ def find_stop_datetime(plc_connection, tag_category: str, start_point: int) -> i
 
         # Check for invalid date-time values
         if year == 0 and month == 0 and day == 0 and hour == 0 and minute == 0 and second == 0:
+            print(f"Fount stop point here , at target {target}, at point{point}")
             return target
+
 
 # function 1
 # define the function to read PLC datetime values
@@ -147,6 +149,7 @@ def read_tag_datetime(plc_connection, tag_category: str, read_num: int) -> objec
 # function 2
 def search_for_match(plc_connection, start_tag_num: int, stop_tag_num: int,
                      last_read_datetime_from_db: datetime) -> object:
+    global is_matched
     """
     Searches for a tag that matches the last read datetime from the database.
     Returns the datetime object of the closest matching tag or None if no matches are found.
@@ -155,14 +158,17 @@ def search_for_match(plc_connection, start_tag_num: int, stop_tag_num: int,
     closest_datetime = None
     smallest_timedelta = [timedelta(days=365)]  # set to 1 year initially
 
-    for i in range(start_tag_num, stop_tag_num):
-        current_read_values = read_tag_datetime(plc_connection=plc_connection, tag_category=TAG_CATEGORY, read_num=i)
+    for num in range(start_tag_num, stop_tag_num):
+        current_read_values = read_tag_datetime(plc_connection=plc_connection, tag_category=TAG_CATEGORY, read_num=num)
         current_read_datetime = current_read_values["datetime_obj"]
         if LAST_READ_DATETIME_FROM_DB == current_read_datetime:
+            is_matched = 1
             print(
-                f"Found a match on search all ,The value of current number  {i} is: {current_read_datetime} & it matches  = {LAST_READ_DATETIME_FROM_DB}")
+                f"Found a match on search all ,The value of current number  {num} is: {current_read_datetime} "
+                f"& it matches  = {LAST_READ_DATETIME_FROM_DB}")
             logging.info(
-                f"Found a match on search all ,The value of current number  {i} is: {current_read_datetime} & it matches  = {LAST_READ_DATETIME_FROM_DB}")
+                f"Found a match on search all ,The value of current number  {num} is: {current_read_datetime} "
+                f"& it matches  = {LAST_READ_DATETIME_FROM_DB}")
             # TODO: READ NUMBER return
             return current_read_values
         if current_read_datetime is not None:
@@ -183,6 +189,7 @@ def search_for_match(plc_connection, start_tag_num: int, stop_tag_num: int,
         print("No valid date-time values were found.")
         logging.error("No valid date-time values were found.")
     # TODO: READ NUMBER return
+    is_matched = 0
     return closest_read_values
 
 
@@ -190,29 +197,32 @@ def search_for_match(plc_connection, start_tag_num: int, stop_tag_num: int,
 def check_last_read(plc_connection, tag_category: str, last_read_number_from_db: int, last_read_datetime_from_db,
                     start_hourly_archive: int, stop_hourly_archive: int) -> object:
     """
-
-    :param plc_connection:
-    :param tag_category:
-    :param last_read_number_from_db:
-    :param last_read_datetime_from_db:
-    :param start_hourly_archive:
-    :param stop_hourly_archive:
-    :return: The atributes of last read if matching with DB, if not look for a match and find either a match or closest match
+    :param plc_connection: connection of PLC
+    :param tag_category: the category of tag
+    :param last_read_number_from_db: last record coming from db
+    :param last_read_datetime_from_db: time of last record coming from db
+    :param start_hourly_archive: lower bound of  archive records ( mostly 0 )
+    :param stop_hourly_archive: upper bound of archive records
+    :return: The attributes of last read if matching with DB, if not search  and find either a match or closest match,
+    it will also affect the global variable is_match if it finds a match
     """
-
+    global is_matched
     logging.info("tage 1 checking if db is having same read")
     print("stage 1 checking if db is having same read")
 
-    last_values_from_PLC = read_tag_datetime(plc_connection=plc_connection, tag_category=tag_category,
+    last_values_from_plc = read_tag_datetime(plc_connection=plc_connection, tag_category=tag_category,
                                              read_num=last_read_number_from_db)
-    last_value_datetime_from_PLC = last_values_from_PLC["datetime_obj"]
+    last_value_datetime_from_plc = last_values_from_plc["datetime_obj"]
 
-    if last_read_datetime_from_db == last_value_datetime_from_PLC:
+    if last_read_datetime_from_db == last_value_datetime_from_plc:
+        is_matched = 1
         print(
-            f"It matches the last read, the value of the last read is {last_read_datetime_from_db} & last read number is {last_read_number_from_db}")
+            f"It matches the last read, the value of the last read is {last_read_datetime_from_db} "
+            f"& last read number is {last_read_number_from_db}")
         logging.info(
-            f"It matches the last read, the value of the last read is {last_read_datetime_from_db} & last read number is {last_read_number_from_db}")
-        return last_values_from_PLC
+            f"It matches the last read, the value of the last read is {last_read_datetime_from_db} "
+            f"& last read number is {last_read_number_from_db}")
+        return last_values_from_plc
     else:
         print("Couldn't match, stage 2 searching all")
         logging.info("Couldn't match, stage 2 searching all")
@@ -220,6 +230,7 @@ def check_last_read(plc_connection, tag_category: str, last_read_number_from_db:
                                         stop_tag_num=stop_hourly_archive,
                                         last_read_datetime_from_db=last_read_datetime_from_db)
         return match_search
+
 
 # function 4
 # define the function to read PLC Record values
@@ -245,11 +256,11 @@ def read_tag_record(plc_connection, tag_category: str, read_num: int, record_num
         print(f"Read failed for min value test, tag {tag_category} at number {read_num} at record {record_num}")
         logging.error(f"Read failed for min value test, tag {tag_category} at number {read_num} at record {record_num}")
         return None
-        #raise Exception(f"Read failed for tag {tag_category} at number {read_num} at record {record_num}")
+        # raise Exception(f"Read failed for tag {tag_category} at number {read_num} at record {record_num}")
 
     # Extract record values
     record_min = response(tag_path + 'MIN').Value
-    record_max = response(tag_path + 'MAX') .Value
+    record_max = response(tag_path + 'MAX').Value
     record_total = response(tag_path + 'TOTAL').Value
     record_time = response(tag_path + 'TIME').Value
     record_min_minute = response(tag_path + 'MINMINUTE').Value
@@ -271,6 +282,7 @@ def read_tag_record(plc_connection, tag_category: str, read_num: int, record_num
     print(record_dict)
     return record_dict
 
+
 # set up the connection to the PLC
 with PLC() as plc:
     plc.IPAddress = PLC_IP
@@ -278,6 +290,9 @@ with PLC() as plc:
     if connected:
         logging.info("Connected to the PLC")
         print("Connected to the PLC")
+        # matched with db or not ( it is used in search_match function and last value check function ) we want to add
+        # 1 for a match since we have the record in db but want to read the closest record if no match found
+        is_matched = 0
         data_stream_list = []
         last_value = check_last_read(plc_connection=plc,
                                      tag_category=TAG_CATEGORY,
@@ -286,15 +301,17 @@ with PLC() as plc:
                                      start_hourly_archive=START_HOURLY_ARCHIVE,
                                      stop_hourly_archive=STOP_HOURLY_ARCHIVE)
 
-        while END_POINT != True:
-            start_data_point = last_value["read_num"] + 1
+        while not END_POINT:
+            start_data_point = last_value["read_num"] + is_matched
             stop_data_point = find_stop_datetime(plc_connection=plc, tag_category=TAG_CATEGORY,
                                                  start_point=start_data_point)
             for j in range(start_data_point, start_data_point + STOP_HOURLY_ARCHIVE + 1):
-                target_read = j % (stop_data_point + 1)
+                target_read = j % (STOP_HOURLY_ARCHIVE + 1)
                 # Check if we reached endpoint
+                print(f" current main loop, target read is {target_read} ===== stop data point{stop_data_point}")
                 if target_read == stop_data_point:
                     END_POINT = True
+                    break
 
                 record_list = []
 
@@ -305,7 +322,7 @@ with PLC() as plc:
                         # Append the dictionary to a list of dictionaries
                         record_list.append(current_read_record)
                     # Turn it into a data frame
-                    df = pd.DataFrame(record_list)
+                df = pd.DataFrame(record_list)
                 print(df.head())
                 print(df.shape)
                 # Saving dataframe into a CSV
@@ -313,7 +330,7 @@ with PLC() as plc:
                 # TODO: Folder Setup and if not exist Create ( Sample In Auto _ manu file )
                 # TODO: ADD ERROR handling
                 # Overwriting mode
-                df.to_csv('my_data.csv', mode='w', index=False)
+                df.to_csv(f'csv/{target_read}.csv', mode='w', index=False)
 
                 # If append needed for later
                 # new_df.to_csv('my_data.csv', mode='a', index=False, header=False)
