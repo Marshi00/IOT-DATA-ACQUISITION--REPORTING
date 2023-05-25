@@ -1,4 +1,4 @@
 1-Check with Alex S , format for stop point
 2- Check docker possible dep
-3- closest date time is bugging out ( abs time ) 
-4- closest date time should not get +1 in search
+3- closest date time is bugging out ( abs time )
+4- handle error of no connection before functions and none value return

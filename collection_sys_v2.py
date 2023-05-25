@@ -11,29 +11,41 @@ logging.basicConfig(filename='log.txt', level=logging.INFO,
 
 PLC_IP = '192.168.0.31'
 TAG_CATEGORY = "report_data"
+# hours of records
 START_HOURLY_ARCHIVE = 0
 STOP_HOURLY_ARCHIVE = 199
+# numbers of signals
 START_HOURLY_RECORD = 0
 STOP_HOURLY_RECORD = 19
 
 # TODO: Come from DB
-LAST_READ_DATETIME_FROM_DB = datetime(2023, 1, 18, 8, 51, 59)
+LAST_READ_DATETIME_FROM_DB = datetime(2022, 5, 2, 23, 59, 59)
 # TODO: Come from DB
-LAST_READ_NUMBER_FROM_DB = 173
+LAST_READ_NUMBER_FROM_DB = 150
 
 
 END_POINT = False
-TABLE_NAME = 'records_table'
 
 
 # TODO: CLOUD Azure MYSQL Setup
 
 # TODO: Check Conn Setup & update
-# Define the connection string to the MySQL database
-# connection_string = 'mysql+pymysql://username:password@hostname/database_name'
+DB_ENDPOINT = "127.0.0.1"
+DB = 'scada_iot'
+DB_USER = 'root'
+DB_PASSWORD = '1234'
+DB_PORT = '3306'
+# Replace the connection parameters with your own values
+db_uri = f'mysql+mysqlconnector://{DB_USER}:{DB_PASSWORD}@{DB_ENDPOINT}:{DB_PORT}/{DB}'
+engine = create_engine(db_uri)
 
-# Create the SQLAlchemy engine
-# engine = create_engine(connection_string)
+try:
+    conn = engine.connect()
+    print("Successfully connected to the MySQL database")
+
+except Exception as e:
+    print("Error: Could not make connection to the MySQL database")
+    print(e)
 
 
 # function 0
@@ -269,14 +281,14 @@ def read_tag_record(plc_connection, tag_category: str, read_num: int, record_num
 
     # Store the extracted values in a dictionary
     record_dict = {
-        'Tag_name': f'{tag_category}[{read_num}].log_data[{record_num}]',
-        'Min': record_min,
-        'Max': record_max,
-        'Total': record_total,
-        'Time': record_time,
-        'MinMinute': record_min_minute,
-        'MaxMinute': record_max_minute,
-        'Valid': record_valid,
+        'tag_name': f'{tag_category}[{read_num}].log_data[{record_num}]',
+        'min': record_min,
+        'max': record_max,
+        'total': record_total,
+        'time': record_time,
+        'min_minute': record_min_minute,
+        'max_minute': record_max_minute,
+        'valid': record_valid,
     }
     # TODO: REMOVE AFTER DEBUG
     print(record_dict)
@@ -319,10 +331,12 @@ with PLC() as plc:
                     current_read_record = read_tag_record(plc_connection=plc, tag_category=TAG_CATEGORY,
                                                           read_num=target_read, record_num=i)
                     if current_read_record is not None:
+                        current_read_record.update(last_value)
                         # Append the dictionary to a list of dictionaries
                         record_list.append(current_read_record)
                     # Turn it into a data frame
                 df = pd.DataFrame(record_list)
+
                 print(df.head())
                 print(df.shape)
                 # Saving dataframe into a CSV
@@ -334,9 +348,12 @@ with PLC() as plc:
 
                 # If append needed for later
                 # new_df.to_csv('my_data.csv', mode='a', index=False, header=False)
-
+                # dropping unneeded data fro DB
+                columns_to_drop = ['raw_attributes', 'end_point']
+                df_dropped = df.drop(columns=columns_to_drop)
                 # TODO: DB setup
-                # df.to_sql(table_name, con=engine, if_exists='replace', index=False)
+                # Insert the DataFrame into the existing SQL table
+                df_dropped.to_sql(name='raw_stream', con=engine, if_exists='append', index=False)
 
                 # Recheck Num + End Point REQ
 
