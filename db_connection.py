@@ -1,5 +1,8 @@
 #### BATCH OF INSERTS !!!!!
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
+import pandas as pd
+import os
+
 
 DB_ENDPOINT = "127.0.0.1"
 DB = 'scada_iot'
@@ -17,6 +20,65 @@ try:
 except Exception as e:
     print("Error: Could not make connection to the MySQL database")
     print(e)
+"""
+try:
+    query = text("SELECT * FROM last_read_info")
+    result = conn.execute(query)
+    for row in result:
+        print(row)
+except Exception as e:
+    print(e)
+"""
+try:
+    x = pd.read_sql_query('SELECT last_read_num, date_time FROM last_read_info '
+                          'ORDER BY date_time DESC LIMIT 1', engine)
+    num = x.at[0, "last_read_num"]
+    date_time = x.at[0, "date_time"]
+    print(x)
+    print(num)
+    print(date_time)
+except Exception as e:
+    print(e)
+
+try:
+    print("start insert")
+    num2 = 182
+    date_time2 = '2033-02-12 17:02:31'
+    query = text("INSERT INTO last_read_info (last_read_num, date_time) VALUES (:num, :date_time)")
+    engine.execute(query, num=num2, date_time=date_time2)
+    print("done inserts")
+except Exception as e:
+    print(e)
+
+try:
+    print("start update")
+    num3 = 182
+    date_time3 = '2033-02-12 17:02:31'
+    query = text("UPDATE last_read_info SET last_read_num = :num, date_time = :date_time")
+    engine.execute(query, num=num3, date_time=date_time3)
+    print("done updates")
+except Exception as e:
+    print(e)
+
+
+Current_Directory = os.getcwd()
+# test path making
+
+
+target_folder = Current_Directory + f'csv/{year}/{month}/{time_stamp}'
+
+os.makedirs(target_folder, exist_ok=True)
+
+t = target_folder
+# 2
+
+target_folder = Current_Directory + f'csv/{year}/{month}/{time_stamp}'
+
+if not os.path.exists(target_folder):
+    os.mkdir(target_folder)
+
+t = target_folder
+
 """
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
