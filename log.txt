@@ -15409,3 +15409,5 @@
 2023-05-25 14:16:17,785:INFO:tage 1 checking if db is having same read
 2023-05-25 14:16:17,827:INFO:The value of 150 is: 2022-05-02 23:59:59
 2023-05-25 14:16:17,827:INFO:It matches the last read, the value of the last read is 2022-05-02 23:59:59 & last read number is 150
+2023-06-23 11:42:59,508:INFO:Connected to the PLC
+2023-06-23 11:42:59,509:INFO:tage 1 checking if db is having same read
