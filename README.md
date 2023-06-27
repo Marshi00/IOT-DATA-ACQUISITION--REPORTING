@@ -18,7 +18,7 @@
   <img width="75px" hspace="20" src="images/python.png"  />
   <img width="75px" hspace="20" src="images/pandas.png"  />
   <img width="75px" hspace="20" src="images/plc.png" />
-  <img width="75px" hspace="20" src="iot_comms.png" />
+  <img width="75px" hspace="20" src="images/iot_comms.png" />
   <img width="75px" hspace="20" src="images/mysql.png" />
 
  
