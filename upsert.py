@@ -1,9 +1,10 @@
+import mysql.connector
 import pandas as pd
 import utilities.connection as uc
 
-PY_CALENDAR_TABLE_START = '2020-01-01'
-PY_CALENDAR_TABLE_STOP = '2050-01-01'
-PY_CALENDAR_TABLE_FREQUENCY = "T"
+PY_CALENDAR_TABLE_START = '2021-01-01'
+PY_CALENDAR_TABLE_STOP = '2021-01-01'
+PY_CALENDAR_TABLE_FREQUENCY = "M"
 CHUNK_SIZE = 86400
 
 
@@ -22,7 +23,6 @@ def dimension_datetime_frame(start='2020-01-01', end='2050-12-31', freq="S"):
     df["Year"] = df.DateTime.dt.year
     return df
 
-
 engine = uc.mysql_connection()
 if engine is not False:
     try:
@@ -33,7 +33,16 @@ if engine is not False:
         with engine.begin() as connection:
             for i in range(0, len(calendar_df), CHUNK_SIZE):
                 chunk = calendar_df[i:i + CHUNK_SIZE]
-                chunk.to_sql('dimDate', connection, if_exists='append', index=False)
+                insert_query = """
+                INSERT INTO dimDate (date_column1, date_column2, ...)
+                VALUES {}
+                ON DUPLICATE KEY UPDATE
+                  date_column1 = VALUES(date_column1),
+                  date_column2 = VALUES(date_column2),
+                  ...
+                """.format(','.join(['%s'] * len(chunk.columns)))
+                values = [tuple(row) for row in chunk.itertuples(index=False, name=None)]
+                connection.execute(insert_query, values)
                 print(f"chunk from {i} to {i + CHUNK_SIZE} done")
         print(f"successfully created the calendar Table from {PY_CALENDAR_TABLE_START} to {PY_CALENDAR_TABLE_STOP}")
     except Exception as e:
@@ -41,3 +50,19 @@ if engine is not False:
         print("failed to create the table")
 else:
     print("Couldn't make connection to MYSQL DB, try again in 5 min")
+
+with engine.begin() as connection:
+    connection.execute("INSERT INTO your_table (column1, column2, ...) VALUES (%s, %s, ...)",
+                       value1, value2, ...)
+    # Perform other operations within the transaction
+    connection.execute("UPDATE ...")
+    connection.execute("DELETE ...")
+
+connection = engine.connect()
+connection.execute("INSERT INTO your_table (column1, column2, ...) VALUES (%s, %s, ...)",
+                   value1, value2, ...)
+# Perform other operations using the connection
+connection.execute("SELECT ...")
+connection.execute("UPDATE ...")
+connection.execute("DELETE ...")
+connection.close()  # Close the connection when finished
