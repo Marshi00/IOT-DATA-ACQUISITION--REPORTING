@@ -2,28 +2,33 @@ import mysql.connector
 import pandas as pd
 import utilities.connection as uc
 
-PY_CALENDAR_TABLE_START = '2021-01-01'
-PY_CALENDAR_TABLE_STOP = '2021-01-01'
-PY_CALENDAR_TABLE_FREQUENCY = "M"
-CHUNK_SIZE = 86400
-
-
-# function to Produce the Dimension Calendar Table
-def dimension_datetime_frame(start='2020-01-01', end='2050-12-31', freq="S"):
-    """ Return a ready  Dimension Calendar Table frame with precision of seconds"""
-    df = pd.DataFrame({"DateTime": pd.date_range(start=start, end=end, freq=freq)})
-    df["second"] = df.DateTime.dt.second
-    df["minute"] = df.DateTime.dt.minute
-    df["hour"] = df.DateTime.dt.hour
-    df["day"] = df.DateTime.dt.day
-    df["dayofweek"] = df.DateTime.dt.dayofweek
-    df["is_weekend"] = df.DateTime.dt.dayofweek > 4
-    df["month"] = df.DateTime.dt.month
-    df["Quarter"] = df.DateTime.dt.quarter
-    df["Year"] = df.DateTime.dt.year
-    return df
-
 engine = uc.mysql_connection()
+
+# transactional
+with engine.begin() as connection:#  the connection is now in a transactional state. This means that any subsequent
+    # queries or operations performed with this connection will be part of a single transaction, allowing you
+    # to commit or rollback the changes as needed.
+    connection.execute("INSERT INTO your_table (column1, column2, ...) VALUES (%s, %s, ...)",
+                       value1, value2, ...)
+    # Perform other operations within the transaction
+    connection.execute("UPDATE ...")
+    connection.execute("DELETE ...")
+    # Commit the transaction explicitly
+    connection.commit()
+
+
+
+# Single
+connection = engine.connect() # 1 active connection to the database. You can use this connection to execute SQL
+# queries and interact with the database.
+connection.execute("INSERT INTO your_table (column1, column2, ...) VALUES (%s, %s, ...)",
+                   value1, value2, ...)
+# Perform other operations using the connection
+connection.execute("SELECT ...")
+connection.execute("UPDATE ...")
+connection.execute("DELETE ...")
+connection.close()  # Close the connection when finished
+
 if engine is not False:
     try:
         calendar_df = dimension_datetime_frame(start=PY_CALENDAR_TABLE_START, end=PY_CALENDAR_TABLE_STOP,
@@ -50,19 +55,3 @@ if engine is not False:
         print("failed to create the table")
 else:
     print("Couldn't make connection to MYSQL DB, try again in 5 min")
-
-with engine.begin() as connection:
-    connection.execute("INSERT INTO your_table (column1, column2, ...) VALUES (%s, %s, ...)",
-                       value1, value2, ...)
-    # Perform other operations within the transaction
-    connection.execute("UPDATE ...")
-    connection.execute("DELETE ...")
-
-connection = engine.connect()
-connection.execute("INSERT INTO your_table (column1, column2, ...) VALUES (%s, %s, ...)",
-                   value1, value2, ...)
-# Perform other operations using the connection
-connection.execute("SELECT ...")
-connection.execute("UPDATE ...")
-connection.execute("DELETE ...")
-connection.close()  # Close the connection when finished

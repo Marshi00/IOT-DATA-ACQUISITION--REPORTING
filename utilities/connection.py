@@ -9,8 +9,9 @@ def mysql_connection(user=MYSQL_DB_USER, password=MYSQL_DB_PASSWORD, ip=MYSQL_DB
     engine = create_engine(db_uri)
 
     try:
-        conn = engine.connect()
+        connection = engine.connect()
         print("Successfully connected to the MySQL database")
+        connection.close()
         return engine
     except Exception as e:
         print("Error: Could not make connection to the MySQL database")
