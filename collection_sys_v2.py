@@ -3,6 +3,7 @@ from sqlalchemy import create_engine
 import pandas as pd
 from pylogix import PLC
 import logging
+import os
 
 # Set up logging
 # TODO: Dynamic daily log text + in spec folder
@@ -19,7 +20,7 @@ START_HOURLY_RECORD = 0
 STOP_HOURLY_RECORD = 19
 
 # TODO: Come from DB
-LAST_READ_DATETIME_FROM_DB = datetime(2022, 5, 2, 23, 59, 59)
+LAST_READ_DATETIME_FROM_DB = datetime(2021, 5, 2, 23, 59, 59)
 # TODO: Come from DB
 LAST_READ_NUMBER_FROM_DB = 150
 
@@ -290,6 +291,16 @@ def read_tag_record(plc_connection, tag_category: str, read_num: int, record_num
         'max_minute': record_max_minute,
         'valid': record_valid,
     }
+
+    dt_values = read_tag_datetime(plc_connection=plc_connection, tag_category=tag_category,
+                                  read_num=read_num)
+    if dt_values is None:
+        print(f"Read failed on DT_values = {dt_values}for min value test, tag {tag_category} at number {read_num}"
+              f" at record {record_num}")
+        logging.error(f"Read failed DT_values = {dt_values} for min value test, tag {tag_category} at number {read_num}"
+                      f" at record {record_num}")
+        return None
+    record_dict.update(dt_values)
     # TODO: REMOVE AFTER DEBUG
     print(record_dict)
     return record_dict
@@ -331,7 +342,6 @@ with PLC() as plc:
                     current_read_record = read_tag_record(plc_connection=plc, tag_category=TAG_CATEGORY,
                                                           read_num=target_read, record_num=i)
                     if current_read_record is not None:
-                        current_read_record.update(last_value)
                         # Append the dictionary to a list of dictionaries
                         record_list.append(current_read_record)
                     # Turn it into a data frame
@@ -340,14 +350,54 @@ with PLC() as plc:
                 print(df.head())
                 print(df.shape)
                 # Saving dataframe into a CSV
-                # TODO: Make dyno CSV with Datetime
-                # TODO: Folder Setup and if not exist Create ( Sample In Auto _ manu file )
                 # TODO: ADD ERROR handling
-                # Overwriting mode
-                df.to_csv(f'csv/{target_read}.csv', mode='w', index=False)
 
+                # Get the current directory
+                current_directory = os.getcwd()
+
+                # Convert the 'datetime_obj' column to datetime
+                df['datetime_obj'] = pd.to_datetime(df['datetime_obj'])
+
+                # Get the first datetime object
+                date_time_obj = df['datetime_obj'].iloc[0]
+
+                # Extract year, month, and day
+                year = date_time_obj.year
+                month = date_time_obj.month
+                day = date_time_obj.day
+
+                # Get the name of the month
+                month_name = date_time_obj.strftime('%B')
+
+                # Create the target folder path
+                target_folder = os.path.join(current_directory, f'csv_archive/{year}/{month_name} ({month})/{day}')
+
+                # Create the target folder if it doesn't exist
+                os.makedirs(target_folder, exist_ok=True)
+
+                # Define the target file path
+                target_file = os.path.join(target_folder, f'{target_read}.csv')
+
+                # Check if the file already exists
+                if os.path.exists(target_file):
+                    counter = 1
+                    while True:
+                        # Modify the target filename by adding a counter
+                        modified_target_file = os.path.join(target_folder, f'{target_read}_{counter}.csv')
+
+                        # Check if the modified filename already exists
+                        if not os.path.exists(modified_target_file):
+                            target_file = modified_target_file
+                            break
+                        counter += 1
+
+                # Overwriting mode
+                # Save the DataFrame to the target CSV file
+                df.to_csv(target_file, mode='w', index=False)
+                # TODO: Clean Later
                 # If append needed for later
                 # new_df.to_csv('my_data.csv', mode='a', index=False, header=False)
+
                 # dropping unneeded data fro DB
                 columns_to_drop = ['raw_attributes', 'end_point']
                 df_dropped = df.drop(columns=columns_to_drop)
