@@ -1,25 +1,10 @@
 #### BATCH OF INSERTS !!!!!
 from sqlalchemy import create_engine, text
 import pandas as pd
-import os
 
 
-DB_ENDPOINT = "127.0.0.1"
-DB = 'scada_iot'
-DB_USER = 'root'
-DB_PASSWORD = '1234'
-DB_PORT = '3306'
-# Replace the connection parameters with your own values
-db_uri = f'mysql+mysqlconnector://{DB_USER}:{DB_PASSWORD}@{DB_ENDPOINT}:{DB_PORT}/{DB}'
-engine = create_engine(db_uri)
 
-try:
-    conn = engine.connect()
-    print("Successfully connected to the MySQL database")
 
-except Exception as e:
-    print("Error: Could not make connection to the MySQL database")
-    print(e)
 """
 try:
     query = text("SELECT * FROM last_read_info")
@@ -61,23 +46,6 @@ except Exception as e:
     print(e)
 
 
-Current_Directory = os.getcwd()
-# test path making
-
-
-target_folder = Current_Directory + f'csv/{year}/{month}/{time_stamp}'
-
-os.makedirs(target_folder, exist_ok=True)
-
-t = target_folder
-# 2
-
-target_folder = Current_Directory + f'csv/{year}/{month}/{time_stamp}'
-
-if not os.path.exists(target_folder):
-    os.mkdir(target_folder)
-
-t = target_folder
 
 """
 from sqlalchemy import create_engine
