@@ -4,7 +4,6 @@ import os
 import utilities.connection as uc
 from helper_functions.custom_functions import *
 
-
 # TODO: Come from DB
 LAST_READ_DATETIME_FROM_DB = datetime(2021, 5, 2, 23, 59, 59)
 # TODO: Come from DB

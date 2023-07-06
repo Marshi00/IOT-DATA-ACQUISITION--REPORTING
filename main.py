@@ -1,3 +1,28 @@
+from fastapi import FastAPI
+import utilities.connection as uc
+import sql_get_queries.get_tag_mapping as get_tag_mapping
+app = FastAPI()
+engine = uc.mysql_connection()
+
+
+@app.get("/api/get/tag_mapping")
+def get_tag_mapping():
+    response = get_tag_mapping.get_tag_mapping(engine)
+    return response
+
+
+@app.get("/api/data")
+def get_data(group: str = None, limit: int = None):
+    if group is None or limit is None:
+        return {"error": "Both 'group' and 'limit' parameters are required."}
+
+    # Use the `group` and `limit` inputs in your logic
+    # For example, retrieve data for the specified group and limit the number of results
+
+    # Return the response based on the inputs
+    return {"group": group, "limit": limit}
+
+
 """
 from pycomm3 import LogixDriver
 
@@ -8,6 +33,7 @@ with LogixDriver('192.168.1.1') as plc:
 
     # print the value of the tag to the console
     print(f"The value of 'MyTag' is: {tag_value}")
+"""
 """
 from pylogix import PLC
 import pandas as pd
@@ -29,3 +55,4 @@ with PLC() as plc:
             print("Read failed")
     else:
         print("Could not connect to PLC")
+"""

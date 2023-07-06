@@ -14,6 +14,7 @@ def mysql_connection(user=MYSQL_DB_USER, password=MYSQL_DB_PASSWORD, ip=MYSQL_DB
         connection.close()
         return engine
     except Exception as e:
+        # TODO : log it
         print("Error: Could not make connection to the MySQL database")
         print(e)
         return False
