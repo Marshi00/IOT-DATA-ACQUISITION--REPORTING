@@ -1,6 +1,6 @@
 def get_tag_mapping(engine):
     try:
-        if engine is not None:
+        if engine is not False:
             # Execute the query using the engine directly
             with engine.connect() as connection:
                 result = connection.execute("SELECT * FROM dim_tag").fetchall()

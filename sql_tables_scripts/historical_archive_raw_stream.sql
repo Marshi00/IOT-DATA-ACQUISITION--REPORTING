@@ -1,4 +1,4 @@
-CREATE TABLE `raw_stream` (
+CREATE TABLE `historical_archive` (
   `id` int NOT NULL AUTO_INCREMENT,
   `tag_name` varchar(45) NOT NULL,
   `min` decimal(21,15) DEFAULT NULL,
@@ -11,6 +11,7 @@ CREATE TABLE `raw_stream` (
   `datetime_obj` datetime NOT NULL,
   `datetime_str` varchar(45) NOT NULL,
   `read_num` varchar(45) NOT NULL,
+  `status` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Raw incoming data without any change '
+) ENGINE=InnoDB  CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='historical_archive raw incoming data without any change '

@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from pylogix import PLC
 import os
 import utilities.connection as uc
@@ -113,6 +114,9 @@ if engine is not False:
                         # TODO: Clean Later
                         # If append needed for later
                         # new_df.to_csv('my_data.csv', mode='a', index=False, header=False)
+
+                        # Add NaN (NULL) as the default value to the 'status' column in SQL table
+                        df['status'] = np.nan
 
                         # dropping unneeded data fro DB
                         columns_to_drop = ['raw_attributes', 'end_point']

@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 import utilities.connection as uc
 import sql_get_queries.get_tag_mapping as get_tag_mapping
+
+
 app = FastAPI()
 engine = uc.mysql_connection()
 
