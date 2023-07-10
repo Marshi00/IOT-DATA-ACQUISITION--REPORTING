@@ -11,23 +11,25 @@ try:
     while True:
         # Fetch a batch of rows
         sql_upsert_query = """
-            INSERT INTO `fact_stream` (`tag_name`, `date_key`, `min`, `max`, `total`, `time`, `min_minute`,
-             `max_minute`,`valid`)
-            SELECT dt.`tag_name`,dd.`DateTime`,rs.`min`,rs.`max`,rs.`total`,rs.`time`,rs.`min_minute`,
-            rs.`max_minute`,rs.`valid`
-            FROM `raw_stream` rs
+            INSERT INTO `fact_stream` (`tag_id`, `date_key`, `min`, `max`, `total`, `time`, `min_minute`, `max_minute`, `valid`)
+            SELECT dt.`tag_id`, dd.`DateTime`, rs.`min`, rs.`max`, rs.`total`, rs.`time`, rs.`min_minute`, rs.`max_minute`, rs.`valid`
+            FROM (
+                SELECT *
+                FROM `raw_stream`
+                WHERE `status` IS NULL
+                LIMIT :batch_size
+            ) rs
             INNER JOIN `dim_tag` dt ON rs.`tag_name` = dt.`tag_name`
             INNER JOIN `dimdate` dd ON rs.`datetime_obj` = dd.`DateTime`
             ON DUPLICATE KEY UPDATE
-              `min` = VALUES(`min`),
-              `max` = VALUES(`max`),
-              `total` = VALUES(`total`),
-              `time` = VALUES(`time`),
-              `min_minute` = VALUES(`min_minute`),
-              `max_minute` = VALUES(`max_minute`),
-              `valid` = VALUES(`valid`)
-            WHERE status IS NULL 
-            LIMIT :batch_size
+                `min` = VALUES(`min`),
+                `max` = VALUES(`max`),
+                `total` = VALUES(`total`),
+                `time` = VALUES(`time`),
+                `min_minute` = VALUES(`min_minute`),
+                `max_minute` = VALUES(`max_minute`),
+                `valid` = VALUES(`valid`);
+
         """
         sql_update_query = """
                         UPDATE raw_stream SET status = 'marked' WHERE id IN (

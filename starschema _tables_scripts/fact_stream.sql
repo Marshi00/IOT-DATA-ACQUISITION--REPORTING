@@ -10,7 +10,8 @@ CREATE TABLE `fact_stream` (
   `max_minute` int DEFAULT NULL,
   `valid` tinyint DEFAULT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`tag_id`) REFERENCES `dim_tag` (`tag_id`),
-  FOREIGN KEY (`date_key`) REFERENCES `dimdate` (`DateTime`)
-  CONSTRAINT `uq_tag_name_date_key` UNIQUE (`tag_id`, `date_key`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  UNIQUE KEY `uq_tag_name_date_key` (`tag_id`,`date_key`),
+  KEY `date_key` (`date_key`),
+FOREIGN KEY (`tag_id`) REFERENCES `dim_tag` (`tag_id`),
+FOREIGN KEY (`date_key`) REFERENCES `dimdate` (`DateTime`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
