@@ -3,7 +3,7 @@ import numpy as np
 from pylogix import PLC
 import os
 import utilities.connection as uc
-from helper_functions.custom_functions import *
+from custom_helper_functions.custom_functions import *
 
 # TODO: Come from DB
 LAST_READ_DATETIME_FROM_DB = datetime(2021, 5, 2, 23, 59, 59)
@@ -73,6 +73,9 @@ if engine is not False:
 
                         # Convert the 'datetime_obj' column to datetime
                         df['datetime_obj'] = pd.to_datetime(df['datetime_obj'])
+                        # TODO: Test it
+                        # Change the seconds to 00 Cause our SQL table is up to Min precision
+                        df['datetime_obj'] = df['datetime_obj'].apply(lambda x: x.strftime('%Y-%m-%d %H:%M:00'))
 
                         # Get the first datetime object
                         date_time_obj = df['datetime_obj'].iloc[0]
@@ -124,6 +127,14 @@ if engine is not False:
                         # TODO: DB setup
                         # Insert the DataFrame into the existing SQL table
                         df_dropped.to_sql(name='raw_stream', con=engine, if_exists='append', index=False)
+                        #TODO : test it
+
+                        # Extracting the last datetime value from 'datetime_obj' column
+                        last_datetime = pd.to_datetime(df['datetime_obj']).iloc[-1]
+
+                        # Extracting the last value from 'tag_name' column
+                        last_tag_name = df['tag_name'].str.extract(r'\[(\d+)\]').astype(int).iloc[-1][0]
+
             # Recheck Num + End Point REQ
             else:
                 logging.info("Could not connect to PLC")

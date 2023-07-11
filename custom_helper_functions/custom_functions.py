@@ -81,7 +81,9 @@ def read_tag_datetime(plc_connection, tag_category: str, read_num: int) -> objec
     day = response(tag_path + 'Day').Value
     hour = response(tag_path + 'Hour').Value
     minute = response(tag_path + 'Minute').Value
-    second = response(tag_path + 'Second').Value
+    # TODO: modified for 00 SQL precision - test
+    #second = response(tag_path + 'Second').Value
+    second = 00
     microsecond = response(tag_path + 'Microsecond').Value
     day_of_week = response(tag_path + 'DayOfWeek').Value
     day_time_saving = response(tag_path + 'DST_ON').Value

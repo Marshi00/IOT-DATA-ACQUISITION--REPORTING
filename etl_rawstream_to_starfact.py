@@ -31,10 +31,20 @@ try:
                 `valid` = VALUES(`valid`);
 
         """
-        sql_update_query = """
-                        UPDATE raw_stream SET status = 'marked' WHERE id IN (
-                        SELECT id FROM raw_stream WHERE status IS NULL LIMIT  :batch_size
-                        """
+        sql_update_query = """        
+            UPDATE raw_stream SET status = 'marked' WHERE id IN (
+            SELECT rs.id
+            FROM (
+                SELECT id
+                FROM `raw_stream`
+                WHERE `status` IS NULL
+                LIMIT :batch_size
+            ) rs
+            INNER JOIN `dim_tag` dt ON rs.`tag_name` = dt.`tag_name`
+            INNER JOIN `dimdate` dd ON rs.`datetime_obj` = dd.`DateTime`
+            )
+        """
+
         with engine.begin() as connection:
             try:
                 result = connection.execute(text(sql_upsert_query), batch_size=batch_size)
