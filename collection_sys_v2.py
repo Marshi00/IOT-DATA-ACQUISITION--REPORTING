@@ -134,7 +134,7 @@ if engine is not False:
 
                         # Extracting the last value from 'tag_name' column
                         last_tag_name = df['tag_name'].str.extract(r'\[(\d+)\]').astype(int).iloc[-1][0]
-
+            # TODO : see the break
             # Recheck Num + End Point REQ
             else:
                 logging.info("Could not connect to PLC")
