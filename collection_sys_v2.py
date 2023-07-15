@@ -139,7 +139,6 @@ if engine is not False:
             else:
                 logging.info("Could not connect to PLC")
                 print("Could not connect to PLC")
-                # TODO : test the exit
     except Exception as e:
         print(e)
         print("failed to do the data data extraction , Main loop")
