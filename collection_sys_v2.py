@@ -124,6 +124,15 @@ if engine is not False:
                         # dropping unneeded data fro DB
                         columns_to_drop = ['raw_attributes', 'end_point']
                         df_dropped = df.drop(columns=columns_to_drop)
+                        # TODO: test setup and working on inserts + update table
+                        # Extract the tag category and original data
+                        df['tag_category'] = df['tag_name'].str.extract(r'^(.*?)\[')
+                        df['original_data'] = df['tag_name']
+
+                        # Extract the tag name
+                        df['tag_name'] = df['tag_name'].str.extract(r'\[(\d+)\]$')
+
+
                         # TODO: DB setup
                         # Insert the DataFrame into the existing SQL table
                         df_dropped.to_sql(name='raw_stream', con=engine, if_exists='append', index=False)
