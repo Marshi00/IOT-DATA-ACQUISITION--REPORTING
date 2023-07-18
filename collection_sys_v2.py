@@ -125,7 +125,7 @@ if engine is not False:
                         columns_to_drop = ['raw_attributes', 'end_point']
                         df_dropped = df.drop(columns=columns_to_drop)
                         # TODO: test setup and working on inserts + update table
-                        # change db tables or change the tag name
+                        # change db tables or change the tag name / dis change tag here
                         # Extract the tag category and original data
                         df['tag_category'] = df['tag_name'].str.extract(r'^(.*?)\[')
                         df['original_data'] = df['tag_name']
